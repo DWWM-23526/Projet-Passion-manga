@@ -2,4 +2,22 @@ nav {
     background-color: white;
 }
 
+.isActive {
+    font-weight: bold;
+    color: red;
+}
 
+.nav-item{
+    font-size: 1.5rem;
+}
+
+
+.nav-item:hover {
+    font-weight: bold !important;
+    color: red !important;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 2rem;
+}

@@ -1,30 +1,29 @@
 <?php
 
 
-$titlePage = 'coucouc from mangakas';
+$titlePage = 'Mangakas';
 
 $cardsTab = [
-    [
-      'img'=> '/assets/img/naruto1.jpg',
-      'alt'=> 'naruto1',
-      'text'=> 'Naruto tome 1',
-    ],
-    [
-      'img'=> '/assets/img/naruto2.jpg',
-      'alt'=> 'naruto2',
-      'text'=> 'Naruto tome 2',
-    ],
-    [
-      'img'=> '/assets/img/naruto3.jpg',
-      'alt'=> 'naruto3',
-      'text'=> 'Naruto tome 3',
-    ],
-    [
-      'img'=> '/assets/img/naruto4.jpg',
-      'alt'=> 'naruto4',
-      'text'=> 'Naruto tome 4',
-    ]
-  ];
+  [
+    'img' => '/assets/img/masashi_kishimoto.jpg',
+    'text' => 'Masashi Kishimoto',
+    'alt' => 'Mangaka of Naruto',
+  ],
+  [
+    'img' => '/assets/img/akira_toriyama.jpg',
+    'text' => 'Akira Toriyama',
+    'alt' => 'Mangaka of Dragon Ball',
+  ],
+  [
+    'img' => '/assets/img/eichiro_oda.jpg',
+    'text' => 'Eiichiro Oda',
+    'alt' => 'Mangaka of One Piece',
+  ],
+  [
+    'img' => '/assets/img/hirohiko_araki.jpg',
+    'text' => 'Hirohiko Araki',
+    'alt' => 'Mangaka of JoJo\'s Bizarre Adventure',
+  ]
+];
 
 require __DIR__ . '/../../views/mangakas/index.view.php';
-

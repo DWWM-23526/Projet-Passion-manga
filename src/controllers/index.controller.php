@@ -1,5 +1,6 @@
 <?php
 
 
-$titlePage = 'coucouc from index';
+$titlePage = 'coucou from index';
 
+require __DIR__ . '/../views/index.view.php'

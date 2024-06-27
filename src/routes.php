@@ -4,6 +4,10 @@
 return [
 
     '/' =>  'controllers/index.controller.php',
-    '/mangas' => 'controllers/mangas/mangas.controller.php'
+    '/login' =>  'controllers/login.controller.php',
+
+    '/mangas' => 'controllers/mangas/index.controller.php',
+
+    '/mangakas' => 'controllers/mangakas/index.controller.php'
 
 ];

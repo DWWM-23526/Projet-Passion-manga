@@ -5,12 +5,11 @@ require __DIR__ . '/../partials/navbar.php';
 ?>
 <main>
 
-    <section>
-    
-    </section>
+    <h3 class="text-center">Bienvenue sur Passion Manga</h3>
+    <?php
+    require __DIR__ .'/../partials/searchbar.php';
+    ?>
 
-
-    <h1><?= $titlePage ?> </h1>
 </main>
 <?php
 require __DIR__ . '/../partials/footer.php';

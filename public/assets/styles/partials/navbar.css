@@ -12,7 +12,7 @@ nav {
 }
 
 
-.nav-item:hover {
+li .nav-item:hover {
     font-weight: bold !important;
     color: red !important;
 }

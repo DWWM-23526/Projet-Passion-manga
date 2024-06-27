@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/assets/styles/main.css">
     <link rel="stylesheet" href="/assets/styles/partials/navbar.css">
     <link rel="stylesheet" href="/assets/styles/partials/searchBar.css">
+    <link rel="stylesheet" href="/assets/styles/partials/card.css">
 
 </head>
 

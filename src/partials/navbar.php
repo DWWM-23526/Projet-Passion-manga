@@ -1,3 +1,5 @@
+<?php require __DIR__ . '/../utils/urlis.php' ?> 
+
 <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Passion Mangas</a>
@@ -6,16 +8,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav w-100 d-flex justify-content-between flex-column flex-lg-row">
-                <div class="group-nav-item d-flex flex-column flex-lg-row">
-                    <li class="nav-item">
+                <div class="d-flex flex-column flex-lg-row">
+                    <li class="nav-item <?= urlIs('/mangas') ? 'isActive' : '' ?>">
                         <a class="nav-link" href="/mangas">Mangas</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item <?= urlIs('/mangakas') ? 'isActive' : '' ?>">
                         <a class="nav-link" href="/mangakas">Mangakas</a>
                     </li>
                 </div>
 
-                <li class="nav-item">
+                <li class="nav-item <?= urlIs('/login') ? 'isActive' : '' ?>">
                     <a class="nav-link" href="/login">Connexion</a>
                 </li>
 

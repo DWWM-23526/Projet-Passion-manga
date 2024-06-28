@@ -4,11 +4,11 @@ require_once __DIR__ . '/../partials/head.php';
 require_once __DIR__ . '/../partials/navbar.php';
 require_once __DIR__ . '/../partials/header.php';
 ?>
-<main class="container">
+<main class="container home-page">
 
     <section id="mangas" class="my-5">
         <a href="/mangas">
-            <h2>MANGAS</h2>
+            <h2 class="no-deco">MANGAS</h2>
         </a>
 
         <p>Explorez notre vaste bibliothèque de mangas. De l'action trépidante aux romances émouvantes, en passant par des thrillers palpitants et des comédies hilarantes, notre collection couvre tous les genres pour satisfaire tous les goûts.</p>
@@ -40,7 +40,7 @@ require_once __DIR__ . '/../partials/header.php';
             <li>Recevoir des recommandations personnalisées.</li>
             <li>Participer aux discussions et échanger avec d'autres fans de mangas.</li>
         </ul>
-        <button class="btn"><a href="/login">Inscrivez-vous dès maintenant</a></button>
+        <button class="btn"><a href="/register">Inscrivez-vous dès maintenant</a></button>
     </section>
 
 </main>

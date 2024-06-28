@@ -10,7 +10,7 @@ require_once __DIR__ . '/../partials/header.php';
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6 d-flex align-items-center">
-                    <h2 class="text-center mb-4 me-5">CONNECTE TOI</h2>
+                    <h2 class="text-center mb-4 me-5">INSCRIT TOI</h2>
                     <div class="form-container p-5 ">
                         <form method="POST">
                             <div class="form-group">

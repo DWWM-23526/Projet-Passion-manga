@@ -22,6 +22,28 @@ class Database
 
     }
 
+    private function fetch() 
+    {
+        return $this->statement->fetch();
+    }
+
+    public function fetchOrFail()
+    {
+        $result = $this->fetch();
+
+        if (!$result) 
+        {
+            // abort
+        }
+        return $result;
+    }
+
+    public function fetchAll()
+    {
+        return $this->statement->fetchAll();
+    }
+
+
     public static function getInstance($config)
     {
         if (self::$instance === null) {

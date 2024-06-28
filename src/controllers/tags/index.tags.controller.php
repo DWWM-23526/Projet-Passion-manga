@@ -5,4 +5,4 @@ $titlePage = 'coucouc from genres';
 
 
 
-require __DIR__ . '/../../views/mangas/index.mangas.view.php';
+require __DIR__ . '/../../views/tags/index.tags.view.php';

@@ -10,6 +10,6 @@ return [
 
     '/mangakas' => 'controllers/mangakas/index.mangakas.controller.php',
 
-    '/genres' => 'controllers/tags/index.tags..controller.php'
+    '/genres' => 'controllers/tags/index.tags.controller.php'
 
 ];

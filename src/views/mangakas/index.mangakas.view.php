@@ -10,11 +10,14 @@ require __DIR__ . '/../../partials/navbar.php';
     ?>
 
     <section>
-        <h1><?= $titlePage ?> </h1>
+        <h1 class="text-center mt-3"><?= $titlePage ?> </h1>
         <div class="container">
             <div class="row g-3 mt-3">
                 <?php
                 foreach ($cardsTab as $card) {
+                    $card_title = $card['first_name'] . " " . $card['last_name'];
+                    $card_img = '/assets/img/masashi_kishimoto.jpg';
+                    $card_alt = $card['first_name'] . " " . $card['last_name'];
                     require __DIR__ . '/../../partials/card.php';
                 }
                 ?>

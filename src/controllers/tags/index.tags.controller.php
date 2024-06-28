@@ -1,7 +1,7 @@
 <?php
 
 
-$titlePage = 'coucouc from genres';
+$titlePage = 'Les genres';
 
 
 

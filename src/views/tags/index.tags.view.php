@@ -10,7 +10,7 @@ require __DIR__ . '/../../partials/navbar.php';
     ?>
 
     <section>
-        <h1><?= $titlePage ?> </h1>
+        <h1 class="text-center mt-3"><?= $titlePage ?> </h1>
        
     </section>
 

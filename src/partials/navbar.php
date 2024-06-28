@@ -15,6 +15,9 @@
                     <li class="nav-item <?= urlIs('/mangakas') ? 'isActive' : '' ?>">
                         <a class="nav-link" href="/mangakas">Mangakas</a>
                     </li>
+                    <li class="nav-item <?= urlIs('/genres') ? 'isActive' : '' ?>">
+                        <a class="nav-link" href="/genres">Genres</a>
+                    </li>
                 </div>
 
                 <li class="nav-item <?= urlIs('/login') ? 'isActive' : '' ?>">

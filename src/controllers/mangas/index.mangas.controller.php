@@ -26,4 +26,4 @@ $cardsTab = [
   ]
 ];
 
-require __DIR__ . '/../../views/mangas/index.view.php';
+require __DIR__ . '/../../views/mangas/index.mangas.view.php';

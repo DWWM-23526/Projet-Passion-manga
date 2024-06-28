@@ -1,0 +1,47 @@
+.container {
+  margin-top: 100px;
+}
+.form-group label {
+  font-weight: bold;
+}
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+.form-container {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.banner {
+  background-color: #ff3925;
+  color: #fff;
+  padding: 20px;
+  text-align: left;
+  font-weight: bolder;
+  overflow: hidden;
+  margin-left: 8rem;
+  margin-right: 8rem;
+}
+.banner h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+  font-weight: bolder;
+}
+.banner img {
+  max-width: 30%;
+  height: auto;
+  float: right;
+  margin-right: 5rem;
+  padding-bottom: 2rem;
+}
+
+.banner-section {
+    background-color: black;
+}

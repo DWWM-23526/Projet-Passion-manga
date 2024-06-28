@@ -1,7 +1,7 @@
 <?php
 
 
-$titlePage = 'Les Mangakas';
+$headerTitle = 'LES MANGAKAS';
 
 require __DIR__ . '/../../core/Database.php';
 $config = require __DIR__ . '/../../config.php';

@@ -1,7 +1,7 @@
 <?php
 
 
-$titlePage = 'Les genres';
+$headerTitle = 'LES GENRES';
 
 
 

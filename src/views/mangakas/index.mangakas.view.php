@@ -2,6 +2,7 @@
 
 require __DIR__ . '/../../partials/head.php';
 require __DIR__ . '/../../partials/navbar.php';
+require __DIR__ . '/../../partials/header.php';
 ?>
 <main>
 
@@ -10,7 +11,7 @@ require __DIR__ . '/../../partials/navbar.php';
     ?>
 
     <section>
-        <h1 class="text-center mt-3"><?= $titlePage ?> </h1>
+    
         <div class="container">
             <div class="row g-3 mt-3">
                 <?php

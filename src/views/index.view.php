@@ -4,14 +4,19 @@ require_once __DIR__ . '/../partials/head.php';
 require_once __DIR__ . '/../partials/navbar.php';
 require_once __DIR__ . '/../partials/header.php';
 ?>
-<main class="container home-page">
+<main class="home-page">
 
     <section id="mangas" class="my-5">
-        <a href="/mangas">
-            <h2 class="no-deco">MANGAS</h2>
-        </a>
 
-        <p>Explorez notre vaste bibliothèque de mangas. De l'action trépidante aux romances émouvantes, en passant par des thrillers palpitants et des comédies hilarantes, notre collection couvre tous les genres pour satisfaire tous les goûts.</p>
+        <div class="">
+            <a href="/mangas">
+                <h2 class="no-deco">MANGAS</h2>
+            </a>
+
+            <p>Explorez notre vaste bibliothèque de mangas. De l'action trépidante aux romances émouvantes, en passant par des thrillers palpitants et des comédies hilarantes, notre collection couvre tous les genres pour satisfaire tous les goûts.</p>
+        
+        </div>
+
     </section>
 
     <section id="mangakas" class="my-5">
@@ -31,8 +36,10 @@ require_once __DIR__ . '/../partials/header.php';
     </section>
 
     <section id="inscription" class="my-5">
-        <a href="/login"></a>
-        <h2>Rejoignez notre communauté</h2>
+        <a href="/login">
+            <h2>Rejoignez notre communauté</h2>
+        </a>
+
         <p>Pour une expérience encore plus enrichissante, créez un compte sur MangaHub. En devenant membre, vous pourrez :</p>
         <ul>
             <li>Suivre vos lectures et créer votre propre bibliothèque de mangas.</li>

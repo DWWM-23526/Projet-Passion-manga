@@ -8,6 +8,7 @@ return [
     '/register' => 'controllers/register.controller.php',
 
     '/mangas' => 'controllers/mangas/index.mangas.controller.php',
+    '/mangas/manga' => 'controllers/mangas/show.mangas.controller.php',
 
     '/mangakas' => 'controllers/mangakas/index.mangakas.controller.php',
 

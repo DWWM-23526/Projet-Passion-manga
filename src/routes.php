@@ -4,7 +4,8 @@
 return [
 
     '/' =>  'controllers/index.controller.php',
-    '/login' =>  'controllers/login.controller.php',
+    '/login' =>  'controllers/login/login.controller.php',
+    '/register' => 'controllers/login/register.controller.php',
 
     '/mangas' => 'controllers/mangas/index.mangas.controller.php',
     '/mangas/manga' => 'controllers/mangas/show.mangas.controller.php',

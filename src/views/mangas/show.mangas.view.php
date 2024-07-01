@@ -23,7 +23,7 @@ require __DIR__ . '/../../partials/header.php';
                 <h3 class="mb-5"><strong>INFORMATION</strong></h3>
                 <p><strong>Edition:</strong> <?= $manga['edition']; ?></p>
                 <p><strong>Nombre de tomes Total:</strong> <?= $manga['total_tome_number']; ?></p>
-                <p><strong>Année de soetie:</strong> <?= $manga['year_release']; ?></p>
+                <p><strong>Année de sortie:</strong> <?= $manga['year_release']; ?></p>
                 <p><strong>Numéro de tome:</strong> <?= $manga['tome_number']; ?></p>
             </div>
 

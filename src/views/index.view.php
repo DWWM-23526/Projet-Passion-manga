@@ -33,7 +33,7 @@ require_once __DIR__ . '/../partials/header.php';
     <section id="inscription" class="my-5">
         <a href="/login"></a>
         <h2>Rejoignez notre communauté</h2>
-        <p>Pour une expérience encore plus enrichissante, créez un compte sur MangaHub. En devenant membre, vous pourrez :</p>
+        <p>Pour une expérience encore plus enrichissante, créez un compte sur MANGA PASSION. En devenant membre, vous pourrez :</p>
         <ul>
             <li>Suivre vos lectures et créer votre propre bibliothèque de mangas.</li>
             <li>Laisser des avis et des notes sur vos lectures.</li>

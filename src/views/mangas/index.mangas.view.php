@@ -19,6 +19,7 @@ require __DIR__ . '/../../partials/header.php';
                     $card_title = $card['manga_name'];
                     $card_img = '/assets/img/naruto1.jpg';
                     $card_alt = $card['manga_name'];
+                    $path = "/mangas/manga?id=" . $card['Id_manga'];
                     require __DIR__ . '/../../partials/card.php';
                 }
                 ?>

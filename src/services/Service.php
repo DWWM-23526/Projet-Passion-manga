@@ -18,11 +18,12 @@ class Service
         return $this->db->query("SELECT * FROM {$table} ")->fetchAll();
     }
 
-    protected function selectOneById($table, $id)
+    protected function selectOneById($table,$idTable, $id)
     {
         return $this->db->query(
-            "SELECT * FROM {$table} where Id_manga = :id",
+            "SELECT * FROM {$table} where {$idTable} = :id",
             ['id' => $id]
         )->fetchOrFail();
     }
+
 }

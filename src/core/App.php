@@ -9,7 +9,7 @@ class App {
     public static function setServicesContainer($container)
     {
         static::$servicesContainer = $container;
-    } 
+    }
 
     public static function getServicesContainer()
     {

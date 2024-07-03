@@ -1,12 +1,12 @@
 <?php
-use core\Database;
+
+use core\App;
+use services\MangakasService;
 
 $headerTitle = 'LES MANGAKAS';
 
+$db = App::getServicesContainer()->getContainer(MangakasService::class);
 
-$config = require __DIR__ . '/../../config.php';
-$db = Database::getInstance($config['database']);
-
-$cardsTab = $db->query("SELECT * FROM mangakas")->fetchAll();
+$cardsTab = $db->selectAllMangakas();
 
 require __DIR__ . '/../../views/mangakas/index.mangakas.view.php';

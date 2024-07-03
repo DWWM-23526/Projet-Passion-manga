@@ -10,7 +10,7 @@ class Database
     private static $instance = null;
     private $connexion;
     private $statement;
- 
+
 
     private function __construct($config)
     {
@@ -21,12 +21,11 @@ class Database
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES => false,
         ];
-        
         $this->connexion = $this->connexion($dsn, $config['user'], $config['pass'], $option);
 
     }
 
-    private function fetch() 
+    private function fetch()
     {
         return $this->statement->fetch();
     }
@@ -35,7 +34,7 @@ class Database
     {
         $result = $this->fetch();
 
-        if (!$result) 
+        if (!$result)
         {
             // abort
         }

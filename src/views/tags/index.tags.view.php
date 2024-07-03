@@ -19,7 +19,7 @@ require __DIR__ . '/../../partials/header.php';
             $card_title = $card['tag_name'] ;
             $card_img = '/assets/img/genre-image.webp';
             $card_alt = $card['tag_name'];
-            $path = '/tags/tags?id=' . $card['Id_tag'];
+            $path = '/genres/genre?id=' . $card['Id_tag'];
             require __DIR__ . '/../../partials/card.php';
             }
         ?>

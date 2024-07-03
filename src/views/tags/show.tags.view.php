@@ -7,8 +7,6 @@ require __DIR__ . '/../../partials/header.php';
 
 <main>
     <section class="container">
-        <h3 class class="mb-5"><strong>GENRE</strong></>
-            <p><strong>Genre:</strong> <?= $tagName['tag_name']; ?></p>
             <div class="container">
                 <div class="row g-3 mt-3">
                     <?php

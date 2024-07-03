@@ -6,10 +6,6 @@ require __DIR__ . '/../../partials/header.php';
 ?>
 <main>
 
-    <?php
-    require __DIR__ . '/../../partials/searchbar.php';
-    ?>
-
     <section>
         
     <div class="container">

@@ -1,27 +1,23 @@
-<footer>
-<div class="footer">
-            <div class="socials">
-                FOLLOW US
-                <div class="div-logo-socials">
-                    <img class="logos-socials" src="public/assets/img/Facebook_logo.png" alt="logo-facebook">
-                    <img class="logos-socials" src="public/assets/img/Twitter_logo.png" alt="logo-twitter">
-                    <img class="logos-socials" src="public/assets/img/Youtube_logo.png" alt="logo-youtube">
-                    <img class="logos-socials" src="public/assets/img/Instagram_logo.jpg" alt="logo-instagram">
-                </div>
-            </div>
-            <div class="overview">
-                OVERVIEW
-                <br><br>
-                <a href="#">What is our site?</a>
-                <br><br>
-                <a href="#">Contact</a>
-                <br><br>
-                <a href="#">Terms of Use</a>
-                <br><br>
-                <a href="#">Private Policy</a>
-            </div>
-        </div>
-        <div class="copyright">
-            Copyright 2024 Passion-manga, Inc.
-        </div>
+<footer class="text-center text-white"  style="background-color:#ff3925;">
+  <div class="container d-flex justify-content-center py-4">
+    <a type="button" class="mx-2">
+    <img src="/assets/img/facebook.svg">
+</a>
+    <a type="button" class="mx-2">
+    <img src="/assets/img/instagram.svg">
+</a>
+    <a type="button" class="mx-2">
+    <img src="/assets/img/twitter.svg">
+</a>
+    <a type="button" class="mx-2">
+    <img src="/assets/img/github.svg">
+</a>
+  </div>
+
+  <!-- Copyright -->
+  <div class="text-center text-white py-2" style="background-color:#000;">
+    © 2024 Copyright:
+    <p class="text-white" href="https://mdbootstrap.com/">Passion-mangas.fr</p>
+  </div>
+  <!-- Copyright -->
 </footer>

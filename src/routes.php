@@ -14,3 +14,5 @@ $router->get('/mangakas', 'controllers/mangakas/index.mangakas.controller.php');
 $router->get('/mangakas/mangaka', 'controllers/mangakas/show.mangakas.controller.php');
 
 $router->get('/genres', 'controllers/tags/index.tags.controller.php');
+$router->get('/genres/genre', 'controllers/tags/show.tags.controller.php');
+

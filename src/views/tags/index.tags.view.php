@@ -17,7 +17,7 @@ require __DIR__ . '/../../partials/header.php';
         <?php
             foreach ($cardsTab as $card) {
             $card_title = $card['tag_name'] ;
-            $card_img = '/assets/img/masashi_kishimoto.jpg';
+            $card_img = '/assets/img/genre-image.webp';
             $card_alt = $card['tag_name'];
             $path = '/tags/tags?id=' . $card['Id_tag'];
             require __DIR__ . '/../../partials/card.php';

@@ -1,6 +1,7 @@
 <?php
+use core\Database;
 
-require __DIR__ . '/../../core/Database.php';
+
 $config = require __DIR__ . '/../../config.php';
 $db = Database::getInstance($config['database']);
 

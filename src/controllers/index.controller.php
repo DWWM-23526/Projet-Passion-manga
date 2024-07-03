@@ -1,6 +1,6 @@
 <?php
+use core\Database;
 
-require __DIR__ . '/../core/Database.php';
 
 $headerTitle = 'BIENVENUE SUR PASSION MANGAS';
 

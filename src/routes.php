@@ -1,7 +1,9 @@
 <?php
 
+$router->get('/', 'controllers/index.controller.php');
 
-return [
+$router->get('/login', 'controllers/login/login.controller.php');
+$router->post('/login', 'controllers/login/login.controller.php');
 
     '/' =>  'controllers/index.controller.php',
    '/login' =>  'controllers/login/login.controller.php',

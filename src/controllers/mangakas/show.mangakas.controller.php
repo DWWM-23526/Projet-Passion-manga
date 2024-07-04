@@ -1,11 +1,11 @@
 <?php
-use core\Database;
+use core\App;
+use services\MangakasService;
 
 
-$config = require __DIR__ . "/../../config.php";
-$db = Database::getInstance($config['database']);
+$db = App::getServicesContainer()->getContainer(MangakasService::class);
 
-$mangaka = $db->query("SELECT * FROM mangakas where Id_mangaka = :id", ['id' => $_GET['id']])->fetchOrFail();
+$mangaka = $db->selectById($_GET['id']);
 
-$headerTitle = 'LES MANGAKAS';
+$headerTitle = $mangaka['first_name'] . " " . $mangaka['last_name'];
 require __DIR__ . '/../../views/mangakas/show.mangakas.view.php';

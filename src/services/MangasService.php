@@ -7,7 +7,7 @@ use services\Service;
 class MangasService extends Service 
 {
     private $table = 'mangas';
-
+    private $idTable = "Id_manga";
 
     public function selectAllMangas()
     {
@@ -16,6 +16,6 @@ class MangasService extends Service
 
     public function selectById($id)
     {
-        return $this->selectOneById($this->table, $id);
+        return $this->selectOneById($this->table,$this->idTable, $id);
     }
 }

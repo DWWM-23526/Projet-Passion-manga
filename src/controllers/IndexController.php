@@ -1,6 +1,9 @@
 <?php
+namespace controller;
 
 use core\Database;
+use controller\Controller;
+
 
 class IndexController extends Controller
 {
@@ -15,7 +18,10 @@ class IndexController extends Controller
         $mangas = $db->query("SELECT * FROM mangas")->fetchAll();
 
         require __DIR__ . '/../views/index.view.php';
-        $this->views('');
+        $this->views('/index.view.php',[
+            'mangas' => $mangas,
+            'headerTitle' => $headerTitle
+        ]);
 
     }
 }

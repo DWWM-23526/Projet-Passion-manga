@@ -4,16 +4,16 @@ namespace core;
 
 class App {
 
-    protected static Container $servicesContainer;
+    protected static Container $container;
 
-    public static function setServicesContainer(Container $container)
+    public static function setContainer(Container $container)
     {
-        static::$servicesContainer = $container;
+        static::$container = $container;
     }
 
-    public static function getServicesContainer()
+    public static function inject()
     {
-        return static::$servicesContainer;
+        return static::$container;
     }
 
 }

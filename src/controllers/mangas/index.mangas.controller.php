@@ -9,4 +9,5 @@ $db = App::getServicesContainer()->getContainer(MangasService::class);
 
 $cardsTab = $db->selectAllMangas();
 
+
 require __DIR__ . '/../../views/mangas/index.mangas.view.php';

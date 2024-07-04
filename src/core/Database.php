@@ -7,12 +7,12 @@ use PDOException;
 
 class Database
 {
-    private static $instance = null;
-    private $connexion;
-    private $statement;
+    private static Database | null $instance = null;
+    private PDO $connexion;
+    private mixed $statement;
 
 
-    private function __construct($config)
+    private function __construct(array $config)
     {
         $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['db']};charset={$config['charset']}";
 
@@ -47,7 +47,7 @@ class Database
     }
 
 
-    public static function getInstance($config)
+    public static function getInstance(array $config)
     {
         if (self::$instance === null) {
             self::$instance = new self($config);
@@ -56,7 +56,7 @@ class Database
         return self::$instance;
     }
 
-    public function query( $query, $params = []) {
+    public function query(string $query, array $params = []) {
         $this->statement = $this->connexion->prepare($query);
         $this->statement->execute($params);
         return $this;
@@ -64,7 +64,7 @@ class Database
     }
 
 
-    private function connexion($dsn, $user, $pass, $option)
+    private function connexion(string $dsn, string $user, string $pass, array $option)
     {
 
         try {

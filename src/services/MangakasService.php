@@ -4,15 +4,15 @@ namespace services;
 use services\Service;
 class MangakasService extends Service
 {
-  private $table = 'mangakas';
-  private $idTable = 'Id_mangaka';
+  private string $table = 'mangakas';
+  private string $idTable = 'Id_mangaka';
 
   public function selectAllMangakas()
   {
     return $this->selectAll($this->table);
   }
 
-  public function selectById($id)
+  public function selectById(int $id)
   {
     return $this->selectOneById($this->table,$this->idTable, $id);
   }

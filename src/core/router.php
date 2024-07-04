@@ -4,9 +4,9 @@ namespace core;
 
 class Router
 {
-    protected $routes = [];
+    protected array $routes = [];
 
-    public function get($uri, $controller)
+    public function get(string $uri, string $controller)
     {
         $this->routes[] = [
             'uri' => $uri,
@@ -14,7 +14,7 @@ class Router
             'method' => 'GET',
         ];
     }
-    public function post($uri, $controller)
+    public function post(string $uri, string $controller)
     {
         $this->routes[] = [
             'uri' => $uri,
@@ -22,7 +22,7 @@ class Router
             'method' => 'POST',
         ];
     }
-    public function delete($uri, $controller)
+    public function delete(string $uri, string $controller)
     {
         $this->routes[] = [
             'uri' => $uri,
@@ -30,7 +30,7 @@ class Router
             'method' => 'DELETE',
         ];
     }
-    public function patch($uri, $controller)
+    public function patch(string $uri, string $controller)
     {
         $this->routes[] = [
             'uri' => $uri,
@@ -38,7 +38,7 @@ class Router
             'method' => 'PATCH',
         ];
     }
-    public function put($uri, $controller)
+    public function put(string $uri, string $controller)
     {
         $this->routes[] = [
             'uri' => $uri,
@@ -47,7 +47,7 @@ class Router
         ];
     }
 
-    public function route($uri, $method)
+    public function route(string $uri, string $method)
     {
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
@@ -58,7 +58,7 @@ class Router
         $this->abort();
     }
 
-    protected function abort($error = 404)
+    protected function abort(int $error = 404)
     {
         http_response_code($error);
         require_once __DIR__ . '/../views/errors/404.php';

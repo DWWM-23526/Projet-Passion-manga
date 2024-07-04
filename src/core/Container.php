@@ -6,14 +6,14 @@ use Exception;
 
 class Container {
 
-    protected $container = [];
+    protected array $container = [];
 
-    public function setContainer($key, $value)
+    public function setContainer(string $key,$value)
     {
         $this->container[$key] = $value;
     }
 
-    public function getContainer($key)
+    public function getContainer(mixed $key)
     {
 
         if (!array_key_exists($key, $this->container)) {

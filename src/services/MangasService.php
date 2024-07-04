@@ -6,15 +6,15 @@ use services\Service;
 
 class MangasService extends Service 
 {
-    private $table = 'mangas';
-    private $idTable = "Id_manga";
+    private string $table = 'mangas';
+    private string $idTable = "Id_manga";
 
     public function selectAllMangas()
     {
         return $this->selectAll($this->table);
     }
 
-    public function selectById($id)
+    public function selectById(int $id)
     {
         return $this->selectOneById($this->table,$this->idTable, $id);
     }

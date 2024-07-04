@@ -4,9 +4,9 @@ namespace core;
 
 class App {
 
-    protected static $servicesContainer;
+    protected static Container $servicesContainer;
 
-    public static function setServicesContainer($container)
+    public static function setServicesContainer(Container $container)
     {
         static::$servicesContainer = $container;
     }

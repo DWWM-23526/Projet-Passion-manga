@@ -4,12 +4,12 @@ namespace services;
 
 use services\Service;
 
-class MangasService extends Service 
+class TagsService extends Service 
 {
-    private string $table = 'mangas';
-    private string $idTable = "Id_manga";
+    private string $table = 'tags';
+    private string $idTable = "Id_tag";
 
-    public function selectAllMangas()
+    public function selectAllTags()
     {
         return $this->selectAll($this->table);
     }

@@ -1,6 +1,9 @@
 <?php
+namespace controllers;
 
 use core\Database;
+use controllers\Controller;
+
 
 class IndexController extends Controller
 {
@@ -9,13 +12,10 @@ class IndexController extends Controller
     {
         $headerTitle = 'BIENVENUE SUR PASSION MANGAS';
 
-
-        $config = require __DIR__ . '/../config.php';
-        $db = Database::getInstance($config['database']);
-        $mangas = $db->query("SELECT * FROM mangas")->fetchAll();
-
-        require __DIR__ . '/../views/index.view.php';
-        $this->views('');
+        
+        $this->views('/index.view.php',[
+            'headerTitle' => $headerTitle
+        ]);
 
     }
 }

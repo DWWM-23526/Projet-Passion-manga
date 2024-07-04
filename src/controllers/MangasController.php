@@ -9,12 +9,16 @@ use controllers\Controller;
 
 class MangasController extends Controller
 {
+    private $db;
+
+public function __construct()
+{
+  $this->db = App::getServicesContainer()->getContainer(MangasService::class);
+}
 
     public function index()
     {
-
-        $db = App::getServicesContainer()->getContainer(MangasService::class);
-        $cardsTab = $db->selectAllMangas();
+        $cardsTab = $this->db->selectAllMangas();
         $headerTitle = 'LES MANGAS';
 
         $this->views('/mangas/index.mangas.view.php', [
@@ -25,9 +29,7 @@ class MangasController extends Controller
 
     public function show()
     {
-
-        $db = App::getServicesContainer()->getContainer(MangasService::class);
-        $manga = $db->selectById($_GET['id']);
+        $manga = $this->db->selectById($_GET['id']);
         $headerTitle = $manga['manga_name'];
 
         $this->views('/mangas/show.mangas.view.php', [

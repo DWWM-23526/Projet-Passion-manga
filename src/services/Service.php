@@ -2,13 +2,13 @@
 
 namespace services;
 
+
 class Service
 {
     protected mixed $db;
 
-    public function __construct(mixed $db)
+    public function __construct($db)
     {
-
         $this->db = $db;
     }
 

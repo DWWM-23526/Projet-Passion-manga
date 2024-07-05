@@ -3,23 +3,23 @@
 namespace controllers;
 
 use core\App;
-use services\MangakasService;
 use controllers\Controller;
+use services\MangakaService;
 
 class MangakasController extends Controller
 {
-private $db;
+protected MangakaService $mangakaService;
 
 public function __construct()
 {
-  $this->db = App::getServicesContainer()->getContainer(MangakasService::class);
+  $this->mangakaService = App::inject()->getContainer(MangakaService::class);
 }
   public function index()
   {
-    $cardsTab = $this->db->selectAllMangakas();
+    $cardsTab = $this->mangakaService->getAllMangakas();
     $headerTitle = "LES MANGAKAS";
 
-    $this->views('/mangakas/index.mangakas.view.php', [
+    $this->render('/mangakas/index.mangakas.view.php', [
       'cardsTab'=> $cardsTab,
       'headerTitle'=> $headerTitle
     ]);
@@ -27,10 +27,10 @@ public function __construct()
 
   public function show()
   {
-    $mangaka = $this->db->selectById($_GET['id']);
+    $mangaka = $this->mangakaService->getAllMangakasById($_GET['id']);
     $headerTitle = $mangaka['first_name']. " ". $mangaka['last_name'];
 
-    $this->views('/mangakas/show.mangakas.view.php', [
+    $this->render('/mangakas/show.mangakas.view.php', [
       'mangaka'=> $mangaka,
       'headerTitle'=> $headerTitle
     ]);

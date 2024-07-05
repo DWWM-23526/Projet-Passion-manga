@@ -21,7 +21,7 @@ class MangaService
 
     public function getMangaById(int $id)
     {
-        return $this->mangaRepository->getMangaById($id); 
+        return $this->mangaRepository->getMangaById($id);
     }
 
 }

@@ -2,7 +2,9 @@
 use core\Container;
 use core\Database;
 use core\App;
+use repositories\MangakaRepository;
 use repositories\MangaRepository;
+use services\MangakaService;
 use services\MangaService;
 
 $container = new Container();
@@ -17,6 +19,16 @@ $container->setContainer(MangaRepository::class, function () {
 
 $container->setContainer(MangaService::class, function () {
   return new MangaService();
+});
+
+$container->setContainer(MangakaRepository::class, function () {
+  $config = require __DIR__ .'/../config.php';
+  $db = Database::getInstance($config['database']);
+  return new MangakaRepository($db);
+});
+
+$container->setContainer(MangakaService::class, function () {
+  return new MangakaService();
 });
 
 

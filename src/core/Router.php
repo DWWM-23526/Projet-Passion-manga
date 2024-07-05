@@ -12,7 +12,7 @@ class Router
     {
         $this->addRoute('GET', $uri, $controller, $method);
     }
-    
+
     public function post(string $uri, string $controller, string $method)
     {
         $this->addRoute('POST', $uri, $controller, $method);
@@ -44,8 +44,12 @@ class Router
         ];
     }
 
-    public function route(string $uri, string $requestMethod)
+    public function route()
     {
+        $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+        $uri = urldecode($uri);
+        $requestMethod = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['requestMethod'] === strtoupper($requestMethod)) {
 

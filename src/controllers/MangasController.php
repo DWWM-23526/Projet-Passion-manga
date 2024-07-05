@@ -21,12 +21,10 @@ class MangasController extends Controller
     public function index()
     {
 
-        // $db = App::inject()->getContainer(MangasService::class);
-        // $cardsTab = $db->selectAllMangas();
         $cardsTab = $this->mangaService->getAllMangas();
         $headerTitle = 'LES MANGAS';
 
-        $this->views('/mangas/index.mangas.view.php', [
+        $this->render('/mangas/index.mangas.view.php', [
             'cardsTab' => $cardsTab,
             'headerTitle' => $headerTitle
         ]);
@@ -35,12 +33,10 @@ class MangasController extends Controller
     public function show()
     {
 
-        // $db = App::inject()->getContainer(MangasService::class);
-        // $manga = $db->selectById($_GET['id']);
         $manga = $this->mangaService->getMangaById($_GET['id']);
         $headerTitle = $manga['manga_name'];
 
-        $this->views('/mangas/show.mangas.view.php', [
+        $this->render('/mangas/show.mangas.view.php', [
             'manga' => $manga,
             'headerTitle' => $headerTitle
         ]);

@@ -7,7 +7,7 @@ class Controller {
         return '/../' . $path;
     }
 
-    protected function views(string $path, array $atributes = []) {
+    protected function render(string $path, array $atributes = []) {
         extract($atributes);
         require __DIR__ . $this->basePath('views' . $path);
     }

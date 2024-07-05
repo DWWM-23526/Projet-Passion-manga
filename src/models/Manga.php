@@ -14,7 +14,7 @@ class Manga
     public ?string $texte;
     public int $Id_mangaka;
 
-    public function __construct(array $data = [])
+    public function  __construct(array $data = [])
     {
         $this->Id_manga = $data['Id_manga'] ?? 0;
         $this->img_manga = $data['img_manga'] ?? '';

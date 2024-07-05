@@ -17,9 +17,10 @@ class MangaRepository extends BaseRepository
 
     public function getMangaById(int $id)
     {
-        $data = $this->getById($this->table, $this->idTable, $id);
-        return $data ? (new Manga($data))->toArray() : null;
+        $result = $this->getById($this->table, $this->idTable, $id);
+        return $result ? (new Manga($result))->toArray() : null;
     }
+    
     // public function selectMangasByTagId(int $id)
     // {
     //     return $this->db->query('SELECT mangas.* , tags.tag_name  FROM mangas 

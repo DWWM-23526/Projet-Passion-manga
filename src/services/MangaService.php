@@ -11,7 +11,7 @@ class MangaService
 
     public function __construct()
     {
-        $this->mangaRepository = App::inject()->getContainer(MangaRepository::class);
+        $this->mangaRepository = App::injectRepository()->getContainer(MangaRepository::class);
     }
 
     public function getAllMangas()

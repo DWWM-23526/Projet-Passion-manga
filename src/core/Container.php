@@ -23,6 +23,6 @@ class Container
             return $this->instances[$key];
         }
 
-        throw new \Exception("Error {$key} does not exist");
+        throw new Exception("Error {$key} does not exist");
     }
 }

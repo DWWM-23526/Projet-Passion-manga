@@ -72,7 +72,7 @@ class App
             return new MangaRepository();
         });
 
-        $containerRepositories->setContainer(MangakaService::class, function () {
+        $containerRepositories->setContainer(MangakaRepository::class, function () {
             return new MangakaRepository();
         });
 

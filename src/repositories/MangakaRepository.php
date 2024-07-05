@@ -6,7 +6,7 @@ use models\Mangaka;
 
 class MangakaRepository extends BaseRepository
 {
-  private string $table = 'mangaka';
+  private string $table = 'mangakas';
   private string $idTable = "Id_mangaka";
 
   public function getAllMangakas()

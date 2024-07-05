@@ -12,7 +12,7 @@ protected MangakaService $mangakaService;
 
 public function __construct()
 {
-  $this->mangakaService = App::inject()->getContainer(MangakaService::class);
+  $this->mangakaService = App::injectService()->getContainer(MangakaService::class);
 }
   public function index()
   {

@@ -5,7 +5,7 @@ namespace services;
 use core\App;
 use repositories\MangaRepository;
 
-class MangaService 
+class MangaService
 {
     protected MangaRepository $mangaRepository;
 

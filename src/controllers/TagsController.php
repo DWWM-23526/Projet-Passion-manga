@@ -19,7 +19,7 @@ class TagsController extends Controller
         $db = App::getServicesContainer()->getContainer(TagsService::class);
         $cardsTab = $db->selectAllTags();
 
-        $this->views('/tags/index.tags.view.php', [
+        $this->render('/tags/index.tags.view.php', [
             'cardsTab' => $cardsTab,
             'headerTitle' => $headerTitle
         ]);
@@ -35,7 +35,7 @@ class TagsController extends Controller
         $tagName = $dbTags->selectById($_GET['id']);
         $headerTitle = $tagName['tag_name'];
 
-        $this->views('/tags/show.tags.view.php', [
+        $this->render('/tags/show.tags.view.php', [
 
             'tags' => $tags,
             'headerTitle' => $headerTitle

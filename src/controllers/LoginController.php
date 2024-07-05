@@ -13,7 +13,7 @@ class LoginController extends Controller
     {
         $headerTitle = 'CONNEXION';
 
-        $this->views('/login/login.view.php', [
+        $this->render('/login/login.view.php', [
             'headerTitle' => $headerTitle
         ]);
     }
@@ -27,9 +27,9 @@ class LoginController extends Controller
 
     public function register()
     {
-        $headerTitle = 'Enregistrement';
+        $headerTitle = 'ENREGISTREMENT';
 
-        $this->views('/login/register.view.php', [
+        $this->render('/login/register.view.php', [
             'headerTitle' => $headerTitle
         ]);
     }

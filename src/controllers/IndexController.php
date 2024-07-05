@@ -13,7 +13,7 @@ class IndexController extends Controller
         $headerTitle = 'BIENVENUE SUR PASSION MANGAS';
 
         
-        $this->views('/index.view.php',[
+        $this->render('/index.view.php',[
             'headerTitle' => $headerTitle
         ]);
 

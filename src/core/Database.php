@@ -63,7 +63,6 @@ class Database
 
     }
 
-
     private function connexion(string $dsn, string $user, string $pass, array $option)
     {
 

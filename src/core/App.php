@@ -2,7 +2,9 @@
 
 namespace core;
 
+use repositories\MangakaRepository;
 use repositories\MangaRepository;
+use services\MangakaService;
 use services\MangaService;
 
 class App
@@ -70,6 +72,10 @@ class App
             return new MangaRepository();
         });
 
+        $containerRepositories->setContainer(MangakaService::class, function () {
+            return new MangakaRepository();
+        });
+
         App::setRepositoriesContainer($containerRepositories);
 
         // SERVICES CONTAINER INIT
@@ -78,6 +84,10 @@ class App
 
         $containerServices->setContainer(MangaService::class, function () {
             return new MangaService();
+        });
+
+        $containerServices->setContainer(MangakaService::class, function () {
+            return new MangakaService();
         });
 
         App::setServiceContainer($containerServices);

@@ -11,7 +11,7 @@ class MangakaService
 
   public function __construct()
   {
-    $this->mangakaRepository = App::inject()->getContainer(MangakaRepository::class);
+    $this->mangakaRepository = App::injectRepository()->getContainer(MangakaRepository::class);
   }
 
   public function getAllMangakas()

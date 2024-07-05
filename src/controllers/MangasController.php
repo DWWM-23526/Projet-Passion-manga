@@ -14,7 +14,7 @@ class MangasController extends Controller
     public function __construct()
     {
         
-        $this->mangaService = App::inject()->getContainer(MangaService::class);
+        $this->mangaService = App::injectService()->getContainer(MangaService::class);
         
     }
 

@@ -34,3 +34,4 @@ $container->setContainer(MangakaService::class, function () {
 
 App::setContainer($container);
 
+

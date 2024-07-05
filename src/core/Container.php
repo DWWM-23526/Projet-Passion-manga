@@ -4,24 +4,25 @@ namespace core;
 
 use Exception;
 
-class Container {
+class Container
+{
+    private array $instances = [];
 
-    protected array $container = [];
-
-    public function setContainer(string $key,$value)
+    public function setContainer(string $key, callable $resolver)
     {
-        $this->container[$key] = $value;
+        $this->instances[$key] = $resolver;
     }
 
-    public function getContainer(mixed $key)
+    public function getContainer(string $key)
     {
-
-        if (!array_key_exists($key, $this->container)) {
-            throw new Exception("Error {$key} does not exist");
+        if (isset($this->instances[$key])) {
+            
+            if (is_callable($this->instances[$key])) {
+                $this->instances[$key] = call_user_func($this->instances[$key]);
+            }
+            return $this->instances[$key];
         }
-        $value = $this->container[$key];
-        return call_user_func($value);
+
+        throw new \Exception("Error {$key} does not exist");
     }
-
-
 }

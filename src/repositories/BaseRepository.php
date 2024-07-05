@@ -2,14 +2,16 @@
 
 namespace repositories;
 
+use core\App;
+use core\Database;
+
 class BaseRepository
 {
     protected mixed $db;
 
-    public function __construct(mixed $db)
+    public function __construct()
     {
-
-        $this->db = $db;
+        $this->db = App::inject()->getContainer(Database::class);
     }
 
     protected function getAll(string $table)

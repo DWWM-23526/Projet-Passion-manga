@@ -1,6 +1,6 @@
 <?php
 
-use core\Router;
+use core\App;
 
 // AUTOLOAD CLASS
 
@@ -9,15 +9,7 @@ spl_autoload_register(function ($class){
     require __DIR__ . "/../src/{$result}.php";
 });
 
-// SERVICES CONTAINER
+// INIT
 
-require __DIR__ . "/../src/services/.servicesContainer.php";
-
-
-// ROUTER 
-
-
-
-$router = new Router();
-$route = require __DIR__ . '/../src/routes.php';
+$router = App::init();
 $router->route();

@@ -2,6 +2,8 @@
 
 use core\App;
 
+session_start();
+
 // AUTOLOAD CLASS
 
 spl_autoload_register(function ($class){

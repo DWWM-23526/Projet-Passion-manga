@@ -5,6 +5,8 @@ namespace core;
 use repositories\MangakaRepository;
 use repositories\MangaRepository;
 use repositories\TagsRepository;
+use repositories\UserRepository;
+use services\AuthService;
 use services\MangakaService;
 use services\MangaService;
 use services\TagsService;
@@ -82,6 +84,10 @@ class App
             return new TagsRepository();
         });
 
+        $containerRepositories->setContainer(UserRepository::class, function () {
+            return new UserRepository();
+        });
+
         App::setRepositoriesContainer($containerRepositories);
 
         // SERVICES CONTAINER INIT
@@ -100,6 +106,10 @@ class App
             return new TagsService();
         });
 
+        $containerServices->setContainer(AuthService::class, function () {
+            return new AuthService();
+        });
+
         App::setServiceContainer($containerServices);
 
         // ROUTER INIT
@@ -111,7 +121,8 @@ class App
         $router->get('/login', 'controllers\LoginController', 'index');
         $router->post('/login', 'controllers\LoginController', 'login');
 
-        $router->get('/register', 'controllers\LoginController', 'register');
+        $router->get('/register', 'controllers\LoginController', 'registerShow');
+        $router->post('/register', 'controllers\LoginController', 'createUser');
 
         $router->get('/mangas', 'controllers\MangasController', 'index');
         $router->post('/mangas', 'controllers\MangasController', 'post');

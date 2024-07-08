@@ -19,11 +19,18 @@
                         <a class="nav-link <?= urlIs('/genres') ? 'isActive' : '' ?>" href="/genres">Genres</a>
                     </li>
                 </div>
-
+                <?php if (!isset($_SESSION["user"])) : ?>
                 <li class="nav-item">
                     <a class="nav-link <?= urlIs('/login') ? 'isActive' : '' ?>" href="/login">Connexion</a>
                 </li>
-
+                <?php else : ?>
+                    <li class="nav-item">
+                    <a class="nav-link <?= urlIs('/') ? 'isActive' : '' ?>" href="/">Bonjour <?= $_SESSION["user"]["pseudo"]?></a>
+                </li>
+                    <li class="nav-item">
+                    <a class="nav-link <?= urlIs('/login') ? 'isActive' : '' ?>" href="/">Déconnexion</a>
+                </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>

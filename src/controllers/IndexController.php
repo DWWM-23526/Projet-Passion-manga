@@ -12,7 +12,6 @@ class IndexController extends Controller
     {
         $headerTitle = 'BIENVENUE SUR PASSION MANGAS';
 
-        
         $this->render('/index.view.php',[
             'headerTitle' => $headerTitle
         ]);

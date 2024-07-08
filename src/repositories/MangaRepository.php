@@ -24,7 +24,7 @@ class MangaRepository extends BaseRepository
    public function searchMangas(string $searchTerm)
    {
 
-    $result = $this->searchByString($this->table, $searchTerm);
+    $result = $this->searchByStringManga($this->table, $searchTerm);
     return array_map(fn($data) => new Manga($data), $result);
 
    }

@@ -19,7 +19,7 @@ class BaseRepository
         return $this->db->query("SELECT * FROM {$table} ")->fetchAll();
     }
 
-    
+
 
     protected function getById(string $table, string $idTable, int $id)
     {
@@ -29,7 +29,7 @@ class BaseRepository
         )->fetchOrFail();
     }
 
-    protected function searchByString(string $table, string $searchTerm)
+    protected function searchByStringManga(string $table, string $searchTerm)
 
     {
         return $this->db->query(
@@ -38,4 +38,15 @@ class BaseRepository
         )->fetchAll();
     }
 
+    protected function searchByStringMangaka(string $table, string $searchTerm, string $searchTerm2)
+    {
+        return $this->db->query(
+            "SELECT * FROM $table WHERE first_name LIKE :searchTerm OR last_name LIKE :searchTerm2",
+
+            [
+                "searchTerm" => "%$searchTerm%",
+                "searchTerm2" => "%$searchTerm2%"
+            ]
+        )->fetchAll();
+    }
 }

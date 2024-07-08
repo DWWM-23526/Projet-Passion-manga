@@ -23,4 +23,9 @@ class MangakaService
   {
     return $this->mangakaRepository->getMangakaById($id);
   }
+
+  public function searchMangakas(string $searchTerm, string $searchTerm2)
+  {
+    return $this->mangakaRepository->searchMangakas($searchTerm, $searchTerm2);
+  }
 }

@@ -19,6 +19,8 @@ class BaseRepository
         return $this->db->query("SELECT * FROM {$table} ")->fetchAll();
     }
 
+    
+
     protected function getById(string $table, string $idTable, int $id)
     {
         return $this->db->query(
@@ -26,5 +28,4 @@ class BaseRepository
             ['id' => $id]
         )->fetchOrFail();
     }
-
 }

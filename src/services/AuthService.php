@@ -1,26 +1,57 @@
 <?php
+
 namespace services;
+
+use core\App;
 use repositories\BaseRepository;
+use repositories\UserRepository;
 
-class AuthService extends BaseRepository {
+class AuthService extends BaseRepository
+{
 
-  private string $table = 'users';
-  public function login(string $password)
+  protected UserRepository $userRepository;
+
+  public function __construct()
   {
-    $stmt = $this->getAll($this->table);
-    $user = $stmt;
-    if (!$user && !password_verify($password, $user['password'])) {
-      return die('User ou Mdp incorrect');
-    }
-    session_start();
-    $_SESSION['user_id'] = $user['id'];
-    $_SESSION['email'] = $user['email'];
-    return die('Connecté !');
+    $this->userRepository = App::injectRepository()->getContainer(UserRepository::class);
   }
 
-  public function register()
+  public function autentication(string $email, string $password)
   {
-    //TODO Logique d'inscription.
+    $user = $this->userRepository->getByEmail($email);
+    if (!$user) {
+      die("NON connecté");
+    }
+    // if (!password_verify($password, $user->password)) {
+    //   die("NON connecté");
+    // }
+    return $user;
+  }
+  public function login($user)
+  {
+    session_start();
+    $_SESSION['user_id'] = $user->Id_user;
+    $_SESSION['email'] = $user->email;
+    return;
+  }
+
+  public function register($pseudo,$password, $email )
+  {
+    $errors = [];
+    if (!strlen($pseudo) >= 4 && !strlen($pseudo) <= 30) {
+      $errors["pseudo"] = "Pseudo doit être entre 4 et 30 caractères";
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $errors["email"] = "Ce n'est pas un email !";
+    }
+    if (!strlen($password)>= 8 && !strlen($password) <= 30) {
+      $errors["passwordLength"] = "Password pas assez long !";
+    }
+    if (empty($errors)) {
+      return $this->userRepository->registerUser($pseudo,$password, $email);
+    } else {
+      return $errors;
+    }
   }
 
   // public function updatePassword()
@@ -30,7 +61,6 @@ class AuthService extends BaseRepository {
 
   public function deleteAccount()
   {
-    
   }
 
   public function logout()

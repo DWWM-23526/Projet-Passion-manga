@@ -29,28 +29,23 @@ class LoginController extends Controller
         $userEmail = $_POST['email'];
         $password = $_POST['password'];
         $user = $this->authService->autentication($userEmail, $password);
-            $user = $this->authService->login($user);
-            header('Location: /');
+        $user = $this->authService->login($user);
+        header('Location: /');
     }
 
     public function createUser()
     {
+
         $registerEmail = $_POST['email'];
         $registerPassword = $_POST['password'];
         $registerPseudo = $_POST['pseudo'];
 
-        $user = $this->authService->register($registerPseudo, $registerPassword, $registerEmail );
+        $user = $this->authService->register($registerPseudo, $registerPassword, $registerEmail);
 
-        var_dump($user);
-
-        $headerTitle = 'ENREGISTREMENT';
-
-        $this->render('/login/register.view.php', [
-            'headerTitle' => $headerTitle,
-        ]);
+        header('Location : /login');
     }
 
-    public function register()
+    public function registerShow()
     {
 
         $headerTitle = 'ENREGISTREMENT';

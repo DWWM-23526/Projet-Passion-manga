@@ -29,9 +29,13 @@ class AuthService extends BaseRepository
   }
   public function login($user)
   {
-    session_start();
-    $_SESSION['user_id'] = $user->Id_user;
-    $_SESSION['email'] = $user->email;
+
+
+    $_SESSION["user"] = [
+      "id" => $user->Id_user,
+      "email"=> $user->email,
+      "pseudo" => $user->pseudo
+    ];
     return;
   }
 
@@ -52,6 +56,7 @@ class AuthService extends BaseRepository
     } else {
       return $errors;
     }
+    
   }
 
   // public function updatePassword()

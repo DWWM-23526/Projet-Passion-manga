@@ -28,4 +28,14 @@ class BaseRepository
             ['id' => $id]
         )->fetchOrFail();
     }
+
+    protected function searchByString(string $table, string $searchTerm)
+
+    {
+        return $this->db->query(
+            "SELECT * FROM $table WHERE manga_name LIKE :searchTerm",
+            ['searchTerm' => "%$searchTerm%"]
+        )->fetchAll();
+    }
+
 }

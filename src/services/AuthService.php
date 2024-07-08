@@ -27,6 +27,7 @@ class AuthService extends BaseRepository
     // }
     return $user;
   }
+  
   public function login($user)
   {
 

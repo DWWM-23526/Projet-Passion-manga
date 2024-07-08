@@ -31,6 +31,7 @@ class LoginController extends Controller
         $user = $this->authService->autentication($userEmail, $password);
         $user = $this->authService->login($user);
         header('Location: /login');
+        exit();
     }
 
     public function createUser()
@@ -52,7 +53,6 @@ class LoginController extends Controller
             $user = $this->authService->autentication($registerEmail, $registerPassword);
             $user = $this->authService->login($user);
             header('Location: /');
-            
             exit();
         }
         

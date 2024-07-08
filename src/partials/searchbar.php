@@ -1,5 +1,5 @@
 <div class="container d-flex justify-content-center">
-      <form action="" method="post" class="d-flex ">
+      <form action="" name="search" method="post" class="d-flex">
         <input
           type="text"
           name="search"

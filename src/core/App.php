@@ -114,6 +114,7 @@ class App
         $router->get('/register', 'controllers\LoginController', 'register');
 
         $router->get('/mangas', 'controllers\MangasController', 'index');
+        $router->post('/mangas', 'controllers\MangasController', 'post');
         $router->get('/mangas/manga', 'controllers\MangasController', 'show');
 
         $router->get('/mangakas', 'controllers\MangakasController', 'index');

@@ -30,7 +30,7 @@ class LoginController extends Controller
         $password = $_POST['password'];
         $user = $this->authService->autentication($userEmail, $password);
         $user = $this->authService->login($user);
-        header('Location: /');
+        header('Location: /login');
     }
 
     public function createUser()
@@ -41,8 +41,21 @@ class LoginController extends Controller
         $registerPseudo = $_POST['pseudo'];
 
         $user = $this->authService->register($registerPseudo, $registerPassword, $registerEmail);
-
-        header('Location : /login');
+     
+        if (is_array($user)) {
+            $headerTitle = 'ENREGISTREMENT';
+            $this->render('/login/register.view.php', [
+                'headerTitle' => $headerTitle,
+                'errors' => $user 
+            ]);
+        } else {
+            $user = $this->authService->autentication($registerEmail, $registerPassword);
+            $user = $this->authService->login($user);
+            header('Location: /');
+            
+            exit();
+        }
+        
     }
 
     public function registerShow()

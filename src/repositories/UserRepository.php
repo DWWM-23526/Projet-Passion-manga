@@ -24,7 +24,7 @@ class UserRepository extends BaseRepository
 
   public function registerUser(string $pseudo, string $password, string $emailUser)
   {
-    
+
     $hashedPassword = password_hash($password, PASSWORD_ARGON2ID);
 
     $result = $this->db->query("INSERT INTO users (pseudo, password, email) VALUES (:pseudo, :password, :email)", [

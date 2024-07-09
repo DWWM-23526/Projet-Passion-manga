@@ -7,19 +7,19 @@ require __DIR__ . '/../../partials/header.php';
 
 <main>
     <section class="container">
-            <div class="container">
-                <div class="row g-3 mt-3">
-                    <?php
-                    foreach ($tags as $tag) {
-                        $card_title = $tag['manga_name'];
-                        $card_img = '/assets/img/genre-image.webp';
-                        $card_alt = $tag['manga_name'];
-                        $path = '/mangas/manga?id=' . $tag['Id_manga'];
-                        require __DIR__ . '/../../partials/card.php';
-                    }
-                    ?>
-                </div>
+        <div class="container">
+            <div class="row g-3 mt-3">
+                <?php
+                foreach ($mangas as $manga) {
+                    $card_title = $manga->manga_name;
+                    $card_img = '/assets/img/genre-image.webp';
+                    $card_alt = $manga->manga_name;
+                    $path = '/mangas/manga?id=' . $manga->Id_manga;
+                    require __DIR__ . '/../../partials/card.php';
+                }
+                ?>
             </div>
+        </div>
     </section>
 </main>
 <?php

@@ -12,21 +12,12 @@ class TagsRepository extends BaseRepository
   public function getAllTags()
   {
     $result = $this->getAll($this->table);
-        return array_map(fn($data) => (new Tags($data))->toArray(), $result);
+    return array_map(fn ($data) => new Tags($data), $result);
   }
 
   function getTagsById(int $id)
   {
     $result = $this->getById($this->table, $this->idTable, $id);
-    return $result ? (new Tags($result))->toArray() : null;
-  }
-  
-  public function getMangasByTagID(int $id)
-  {
-    //TODO Refacto la requête
-       return $this->db->query('SELECT mangas.* , tags.tag_name  FROM mangas
-        JOIN tags_manga on tags_manga.Id_manga = mangas.Id_manga
-        JOIN tags on tags.Id_tag = tags_manga.Id_tag
-        WHERE tags.Id_tag = :id', ['id' => $id])->fetchAll();
+    return $result ? new Tags($result) : null;
   }
 }

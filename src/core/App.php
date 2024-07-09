@@ -121,6 +121,7 @@ class App
 
         $router->get('/login', 'controllers\AuthController', 'indexLogin')->middleware('guest');
         $router->post('/login', 'controllers\AuthController', 'login')->middleware('guest');
+        $router->get('/managment', 'controllers\AuthController', 'managment');
 
         $router->get('/register', 'controllers\AuthController', 'indexRegister')->middleware('guest');
         $router->post('/register', 'controllers\AuthController', 'register')->middleware('guest');

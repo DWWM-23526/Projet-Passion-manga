@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/../utils/urlis.php' ?> 
+<?php require __DIR__ . '/../../utils/urlis.php' ?> 
 
 <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
@@ -28,7 +28,7 @@
                     <a class="nav-link <?= urlIs('/account') ? 'isActive' : '' ?>" href="/">Bonjour <?= $_SESSION["user"]["pseudo"]?></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= urlIs('/favaccount') ? 'isActive' : '' ?>" href="/">Mes favoris</a>
+                    <a class="nav-link <?= urlIs('/favories') ? 'isActive' : '' ?>" href="/favories">Mes favoris</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?= urlIs('/login') ? 'isActive' : '' ?>" href="/logout">Déconnexion</a>

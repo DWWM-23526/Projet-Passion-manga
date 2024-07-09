@@ -3,14 +3,14 @@ namespace controllers;
 use controllers\Controller;
 
 
-class IndexController extends Controller
+class FavoriesController extends Controller
 {
 
     public function index()
     {
-        $headerTitle = 'BIENVENUE SUR PASSION MANGAS';
+        $headerTitle = 'FAVORIES';
 
-        $this->render('/index.view.php',[
+        $this->render('/favories/favories.view.php',[
             'headerTitle' => $headerTitle
         ]);
 

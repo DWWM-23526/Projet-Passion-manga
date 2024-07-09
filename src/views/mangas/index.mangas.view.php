@@ -1,13 +1,13 @@
 <?php
 
-require __DIR__ . '/../../partials/head.php';
-require __DIR__ . '/../../partials/navbar.php';
-require __DIR__ . '/../../partials/header.php';
+require __DIR__ . '/../partials/head.php';
+require __DIR__ . '/../partials/navbar.php';
+require __DIR__ . '/../partials/header.php';
 ?>
 <main>
 
     <?php
-    require __DIR__ . '/../../partials/searchbar.php';
+    require __DIR__ . '/../partials/searchbar.php';
     ?>
 
     <section>
@@ -20,7 +20,7 @@ require __DIR__ . '/../../partials/header.php';
                     $card_img = '/assets/img/naruto1.jpg';
                     $card_alt = $card->manga_name;
                     $path = "/mangas/manga?id=" . $card->Id_manga;
-                    require __DIR__ . '/../../partials/card.php';
+                    require __DIR__ . '/../partials/card.php';
                 }
                 ?>
             </div>
@@ -29,6 +29,6 @@ require __DIR__ . '/../../partials/header.php';
 
 </main>
 <?php
-require __DIR__ . '/../../partials/footer.php';
-require __DIR__ . '/../../partials/foot.php';
+require __DIR__ . '/../partials/footer.php';
+require __DIR__ . '/../partials/foot.php';
 ?>

@@ -24,11 +24,14 @@
                     <a class="nav-link <?= urlIs('/login') ? 'isActive' : '' ?>" href="/login">Connexion</a>
                 </li>
                 <?php else : ?>
-                    <li class="nav-item">
-                    <a class="nav-link <?= urlIs('/') ? 'isActive' : '' ?>" href="/">Bonjour <?= $_SESSION["user"]["pseudo"]?></a>
+                <li class="nav-item">
+                    <a class="nav-link <?= urlIs('/account') ? 'isActive' : '' ?>" href="/">Bonjour <?= $_SESSION["user"]["pseudo"]?></a>
                 </li>
-                    <li class="nav-item">
-                    <a class="nav-link <?= urlIs('/login') ? 'isActive' : '' ?>" href="/">Déconnexion</a>
+                <li class="nav-item">
+                    <a class="nav-link <?= urlIs('/favaccount') ? 'isActive' : '' ?>" href="/">Mes favoris</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <?= urlIs('/login') ? 'isActive' : '' ?>" href="/logout">Déconnexion</a>
                 </li>
                 <?php endif; ?>
             </ul>

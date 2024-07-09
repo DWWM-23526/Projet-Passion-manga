@@ -30,7 +30,7 @@ class AuthController extends Controller
         $password = $_POST['password'];
         $user = $this->authService->autentication($userEmail, $password);
         $user = $this->authService->login($user);
-        header('Location: /login');
+        header('Location: /');
         exit();
     }
 
@@ -44,6 +44,17 @@ class AuthController extends Controller
         ]);
     }
 
+    public function logout()
+    {
+
+        $this->authService->logoutUser();
+        $headerTitle = 'BIENVENUE SUR PASSION MANGAS';
+
+        $this->render('/index.view.php',[
+            'headerTitle' => $headerTitle
+        ]);
+    }
+
     public function Register()
     {
 
@@ -52,7 +63,7 @@ class AuthController extends Controller
         $registerPseudo = $_POST['pseudo'];
 
         $user = $this->authService->register($registerPseudo, $registerPassword, $registerEmail);
-     
+
         if (is_array($user)) {
             $headerTitle = 'ENREGISTREMENT';
             $this->render('/login/register.view.php', [
@@ -65,7 +76,6 @@ class AuthController extends Controller
             header('Location: /');
             exit();
         }
-        
     }
 
 }

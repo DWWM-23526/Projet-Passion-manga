@@ -117,6 +117,7 @@ class App
         $router = new Router();
 
         $router->get('/', 'controllers\IndexController', 'index');
+        $router->get('/logout', 'controllers\AuthController', 'logout');
 
         $router->get('/login', 'controllers\AuthController', 'indexLogin');
         $router->post('/login', 'controllers\AuthController', 'login');

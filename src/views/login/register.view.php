@@ -15,15 +15,15 @@ require_once __DIR__ . '/../../partials/header.php';
                         <form method="POST">
                             <div class="form-group">
                                 <label for="pseudo">Pseudo:</label>
-                                <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Enter pseudo">
+                                <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Enter pseudo" required>
                             </div>
                             <div class="form-group mt-4">
                                 <label for="email">Email:</label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
                             </div>
                             <div class="form-group mt-4">
                                 <label for="pwd">Password:</label>
-                                <input type="password" class="form-control" name="password" id="pwd" placeholder="Enter password">
+                                <input type="password" class="form-control" name="password" id="pwd" placeholder="Enter password" required>
                             </div>
                             <!-- <div class="form-group mt-4">
                                 <label for="pwd">Confirm Password:</label>

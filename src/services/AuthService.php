@@ -19,19 +19,15 @@ class AuthService extends BaseRepository
   public function autentication(string $email, string $password)
   {
     $user = $this->userRepository->getByEmail($email);
-    if (!$user) {
-      die("NON connecté");
+    if (!$user && !password_verify($password, $user->password)) {
+      exit("error");
     }
-    // if (!password_verify($password, $user->password)) {
-    //   die("NON connecté");
-    // }
     return $user;
   }
 
+
   public function login($user)
   {
-
-
     $_SESSION["user"] = [
       "id" => $user->Id_user,
       "email" => $user->email,
@@ -42,6 +38,7 @@ class AuthService extends BaseRepository
 
   public function register($pseudo, $password, $email)
   {
+    $pattern = '/^(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-zA-Z]).{8,}$/';
     $errors = [];
 
     if (!strlen($pseudo) >= 4 && !strlen($pseudo) <= 30) {
@@ -50,19 +47,16 @@ class AuthService extends BaseRepository
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $errors["email"] = "Ce n'est pas un email !";
     }
-    if (!strlen($password) >= 8 && !strlen($password) <= 30) {
-      $errors["passwordLength"] = "Password pas assez long !";
+    if (!preg_match($pattern, $password)) {
+      $errors["passwordComplexity"] = "Le mot de passe doit contenir au moins huit caractère un chiffre, un caractère spécial et une lettre !";
     }
 
     if (empty($errors)) {
       return $this->userRepository->registerUser($pseudo, $password, $email);
     } else {
+      var_dump($errors);
       return $errors;
     }
-  }
-
-  public function updatePassword()
-  {
   }
 
   public function deleteAccount()
@@ -72,11 +66,11 @@ class AuthService extends BaseRepository
   public function logout()
   {
     session_start();
-    if (!isset($_SESSION['user_id'])) {
+    if (!isset($_SESSION['user'])) {
       header('Location: login.view.php');
       exit();
     }
-    unset($_SESSION['user_id']);
+    unset($_SESSION['user']);
 
     header('Location: register.view.php');
   }

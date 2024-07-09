@@ -129,6 +129,7 @@ class App
         $router->get('/mangas/manga', 'controllers\MangasController', 'show');
 
         $router->get('/mangakas', 'controllers\MangakasController', 'index');
+        $router->post('/mangakas', 'controllers\MangakasController', 'post');
         $router->get('/mangakas/mangaka', 'controllers\MangakasController', 'show');
 
         $router->get('/genres', 'controllers\TagsController', 'index');

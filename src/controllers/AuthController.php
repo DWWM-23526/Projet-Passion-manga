@@ -57,7 +57,7 @@ class AuthController extends Controller
             $headerTitle = 'ENREGISTREMENT';
             $this->render('/login/register.view.php', [
                 'headerTitle' => $headerTitle,
-                'errors' => $user 
+                'errors' => $user
             ]);
         } else {
             $user = $this->authService->autentication($registerEmail, $registerPassword);

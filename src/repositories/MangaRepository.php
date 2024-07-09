@@ -9,6 +9,11 @@ class MangaRepository extends BaseRepository
     private string $table = 'mangas';
     private string $idTable = "Id_manga";
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     // GET
 
     public function getAllMangas()
@@ -25,7 +30,6 @@ class MangaRepository extends BaseRepository
 
     public function getMangasByTagID(int $id)
     {
-        //TODO Refacto la requête
         $result = $this->db->query('SELECT mangas.* , tags.tag_name  FROM mangas
         JOIN tags_manga on tags_manga.Id_manga = mangas.Id_manga
         JOIN tags on tags.Id_tag = tags_manga.Id_tag
@@ -34,10 +38,13 @@ class MangaRepository extends BaseRepository
         return array_map(fn ($data) => new Manga($data), $result);
     }
 
-    public function searchMangas(string $searchTerm)
-    {
+    public function searchByStringManga(string $searchTerm)
 
-        $result = $this->searchByString($this->table, $searchTerm);
-        return array_map(fn ($data) => new Manga($data), $result);
+    {
+        $result = $this->db->query(
+            "SELECT * FROM $this->table WHERE manga_name LIKE :searchTerm",
+            ['searchTerm' => "%$searchTerm%"]
+        )->fetchAll();
+        return array_map(fn($data) => new Manga($data), $result);
     }
 }

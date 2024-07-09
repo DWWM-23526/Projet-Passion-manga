@@ -29,4 +29,8 @@ class MangaService
         return $this->mangaRepository->searchMangas($searchTerm);
     }
 
+    public function  getMangasByTagID(int $id)
+    {
+        return $this->mangaRepository->getMangasByTagID($id);
+    }
 }

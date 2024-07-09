@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../partials/navbar.php';
 require_once __DIR__ . '/../../partials/header.php';
 ?>
 <main>
-    
+
     <section>
         <div class="container">
             <div class="row justify-content-center">
@@ -24,7 +24,7 @@ require_once __DIR__ . '/../../partials/header.php';
                             <button type="submit" class="btn btn-dark btn-block mt-4">Login</button>
                         </form>
                         <div class="mt-3">
-                        <a href="/register">Pas de compte ?</a>
+                            <a href="/register">Pas de compte ?</a>
                         </div>
                     </div>
                 </div>

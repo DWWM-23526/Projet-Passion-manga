@@ -7,7 +7,7 @@ use controllers\Controller;
 use core\App;
 use services\AuthService;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     protected AuthService $authService;
     public function __construct()
@@ -15,7 +15,7 @@ class LoginController extends Controller
         $this->authService = App::injectService()->getContainer(AuthService::class);
     }
 
-    public function index()
+    public function indexLogin()
     {
         $headerTitle = 'CONNEXION';
 
@@ -34,7 +34,17 @@ class LoginController extends Controller
         exit();
     }
 
-    public function createUser()
+    public function IndexRegister()
+    {
+
+        $headerTitle = 'ENREGISTREMENT';
+
+        $this->render('/login/register.view.php', [
+            'headerTitle' => $headerTitle,
+        ]);
+    }
+
+    public function Register()
     {
 
         $registerEmail = $_POST['email'];
@@ -58,13 +68,4 @@ class LoginController extends Controller
         
     }
 
-    public function registerShow()
-    {
-
-        $headerTitle = 'ENREGISTREMENT';
-
-        $this->render('/login/register.view.php', [
-            'headerTitle' => $headerTitle,
-        ]);
-    }
 }

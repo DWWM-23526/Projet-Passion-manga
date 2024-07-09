@@ -63,15 +63,8 @@ class AuthService extends BaseRepository
   {
   }
 
-  public function logout()
+  public function logoutUser()
   {
-    session_start();
-    if (!isset($_SESSION['user'])) {
-      header('Location: login.view.php');
-      exit();
-    }
     unset($_SESSION['user']);
-
-    header('Location: register.view.php');
   }
 }

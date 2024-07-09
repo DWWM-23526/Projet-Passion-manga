@@ -9,6 +9,11 @@ class MangakaRepository extends BaseRepository
   private string $table = 'mangakas';
   private string $idTable = "Id_mangaka";
 
+  public function __construct()
+  {
+    parent::__construct();
+  }
+
   public function getAllMangakas()
   {
     $result = $this->getAll($this->table);
@@ -23,7 +28,13 @@ class MangakaRepository extends BaseRepository
 
   public function searchMangakas(string $searchTerm)
   {
-    $result = $this->searchByStringMangaka($this->table, $searchTerm);
+    $result = $this->db->query(
+      "SELECT * FROM $this->table WHERE first_name LIKE :searchTerm OR last_name LIKE :searchTerm2",
+      [
+          'searchTerm' => "%$searchTerm%",
+          'searchTerm2' => "%$searchTerm%"
+      ]
+  )->fetchAll();
     return array_map(fn ($data) => new Mangaka($data), $result);
   }
 }

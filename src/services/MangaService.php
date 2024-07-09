@@ -26,7 +26,7 @@ class MangaService
 
     public function searchMangas(string $searchTerm)
     {
-        return $this->mangaRepository->searchMangas($searchTerm);
+        return $this->mangaRepository->searchByStringManga($searchTerm);
     }
 
     public function  getMangasByTagID(int $id)

@@ -25,10 +25,12 @@ class AuthService extends BaseRepository
     return $user;
   }
 
+
   public function login($user)
   {
     $_SESSION["user"] = [
       "id" => $user->Id_user,
+      "email" => $user->email,
       "email" => $user->email,
       "pseudo" => $user->pseudo
     ];
@@ -36,9 +38,11 @@ class AuthService extends BaseRepository
   }
 
   public function register($pseudo, $password, $email)
+  public function register($pseudo, $password, $email)
   {
     $pattern = '/^(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-zA-Z]).{8,}$/';
     $errors = [];
+
     if (!strlen($pseudo) >= 4 && !strlen($pseudo) <= 30) {
       $errors["pseudo"] = "Pseudo doit être entre 4 et 30 caractères";
     }
@@ -48,18 +52,15 @@ class AuthService extends BaseRepository
     if (!preg_match($pattern, $password)) {
       $errors["passwordComplexity"] = "Le mot de passe doit contenir au moins huit caractère un chiffre, un caractère spécial et une lettre !";
     }
+
     if (empty($errors)) {
+      return $this->userRepository->registerUser($pseudo, $password, $email);
       return $this->userRepository->registerUser($pseudo, $password, $email);
     } else {
       var_dump($errors);
       return $errors;
     }
   }
-
-  // public function updatePassword()
-  // {
-
-  // }
 
   public function deleteAccount()
   {

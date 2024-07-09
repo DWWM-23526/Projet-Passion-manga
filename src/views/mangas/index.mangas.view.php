@@ -11,7 +11,7 @@ require __DIR__ . '/../../partials/header.php';
     ?>
 
     <section>
-        
+
         <div class="container">
             <div class="row g-3 mt-3">
                 <?php

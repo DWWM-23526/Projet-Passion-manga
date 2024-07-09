@@ -21,6 +21,7 @@ class BaseRepository
 
 
 
+
     protected function getById(string $table, string $idTable, int $id)
     {
         return $this->db->query(
@@ -38,15 +39,4 @@ class BaseRepository
         )->fetchAll();
     }
 
-    protected function searchByStringMangaka(string $table, string $searchTerm, string $searchTerm2)
-    {
-        return $this->db->query(
-            "SELECT * FROM $table WHERE first_name LIKE :searchTerm OR last_name LIKE :searchTerm2",
-
-            [
-                "searchTerm" => "%$searchTerm%",
-                "searchTerm2" => "%$searchTerm2%"
-            ]
-        )->fetchAll();
-    }
 }

@@ -118,11 +118,11 @@ class App
 
         $router->get('/', 'controllers\IndexController', 'index');
 
-        $router->get('/login', 'controllers\LoginController', 'index');
-        $router->post('/login', 'controllers\LoginController', 'login');
+        $router->get('/login', 'controllers\AuthController', 'indexLogin');
+        $router->post('/login', 'controllers\AuthController', 'login');
 
-        $router->get('/register', 'controllers\LoginController', 'registerShow');
-        $router->post('/register', 'controllers\LoginController', 'createUser');
+        $router->get('/register', 'controllers\AuthController', 'indexRegister');
+        $router->post('/register', 'controllers\AuthController', 'register');
 
         $router->get('/mangas', 'controllers\MangasController', 'index');
         $router->post('/mangas', 'controllers\MangasController', 'post');

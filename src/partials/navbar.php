@@ -25,7 +25,7 @@
                 </li>
                 <?php else : ?>
                 <li class="nav-item">
-                    <a class="nav-link <?= urlIs('/account') ? 'isActive' : '' ?>" href="/">Bonjour <?= $_SESSION["user"]["pseudo"]?></a>
+                    <a class="nav-link <?= urlIs('/managment') ? 'isActive' : '' ?>" href="/managment">Bonjour <?= $_SESSION["user"]["pseudo"]?></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?= urlIs('/favaccount') ? 'isActive' : '' ?>" href="/">Mes favoris</a>

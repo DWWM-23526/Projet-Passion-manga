@@ -121,6 +121,7 @@ class App
 
         $router->get('/login', 'controllers\AuthController', 'indexLogin');
         $router->post('/login', 'controllers\AuthController', 'login');
+        $router->get('/managment', 'controllers\AuthController', 'managment');
 
         $router->get('/register', 'controllers\AuthController', 'indexRegister');
         $router->post('/register', 'controllers\AuthController', 'register');

@@ -19,6 +19,9 @@ require_once __DIR__ . '/../../partials/header.php';
                             </div>
                             <div class="form-group mt-4">
                                 <label for="pwd">Password:</label>
+                                <div class="mt-1 mb-2">
+                                    <a href="#">Mdp oublié ?</a>
+                                </div>
                                 <input type="password" class="form-control" name="password" id="pwd" placeholder="Enter password">
                             </div>
                             <button type="submit" class="btn btn-dark btn-block mt-4">Login</button>

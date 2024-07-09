@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__ . '/../../partials/head.php';
-require __DIR__ . '/../../partials/navbar.php';
-require __DIR__ . '/../../partials/header.php';
+require __DIR__ . '/../partials/head.php';
+require __DIR__ . '/../partials/navbar.php';
+require __DIR__ . '/../partials/header.php';
 ?>
 
 <main>
@@ -15,7 +15,7 @@ require __DIR__ . '/../../partials/header.php';
                     $card_img = '/assets/img/genre-image.webp';
                     $card_alt = $manga->manga_name;
                     $path = '/mangas/manga?id=' . $manga->Id_manga;
-                    require __DIR__ . '/../../partials/card.php';
+                    require __DIR__ . '/../partials/card.php';
                 }
                 ?>
             </div>
@@ -23,6 +23,6 @@ require __DIR__ . '/../../partials/header.php';
     </section>
 </main>
 <?php
-require __DIR__ . '/../../partials/footer.php';
-require __DIR__ . '/../../partials/foot.php';
+require __DIR__ . '/../partials/footer.php';
+require __DIR__ . '/../partials/foot.php';
 ?>

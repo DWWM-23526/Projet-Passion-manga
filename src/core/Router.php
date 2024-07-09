@@ -3,6 +3,7 @@
 namespace core;
 
 use Exception;
+use middlewares\Middleware;
 
 class Router
 {
@@ -10,27 +11,32 @@ class Router
 
     public function get(string $uri, string $controller, string $method)
     {
-        $this->addRoute('GET', $uri, $controller, $method);
+        return $this->addRoute('GET', $uri, $controller, $method);
     }
 
     public function post(string $uri, string $controller, string $method)
     {
-        $this->addRoute('POST', $uri, $controller, $method);
+        return $this->addRoute('POST', $uri, $controller, $method);
     }
 
     public function delete(string $uri, string $controller, string $method)
     {
-        $this->addRoute('DELETE', $uri, $controller, $method);
+        return $this->addRoute('DELETE', $uri, $controller, $method);
     }
 
     public function patch(string $uri, string $controller, string $method)
     {
-        $this->addRoute('PATCH', $uri, $controller, $method);
+        return $this->addRoute('PATCH', $uri, $controller, $method);
     }
 
     public function put(string $uri, string $controller, string $method)
     {
-        $this->addRoute('PUT', $uri, $controller, $method);
+        return $this->addRoute('PUT', $uri, $controller, $method);
+    }
+
+    public function middleware($key)
+    {
+        $this->routes[array_key_last($this->routes)]['middleware'] = $key;
     }
 
 
@@ -41,7 +47,10 @@ class Router
             'controller' => $controller,
             'method' => $method,
             'requestMethod' => $requestMethod,
+            'middleware' => null,
         ];
+
+        return $this;
     }
 
     public function route()
@@ -52,6 +61,11 @@ class Router
 
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['requestMethod'] === strtoupper($requestMethod)) {
+
+                if ($route['middleware']) {
+                    $middleware = Middleware::MAP[$route['middleware']];
+                    (new $middleware)->handle();
+                }
 
                 if (class_exists($route['controller'])) {
                     $controller = new $route['controller'];

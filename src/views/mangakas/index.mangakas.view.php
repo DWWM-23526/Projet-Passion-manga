@@ -1,13 +1,13 @@
 <?php
 
-require __DIR__ . '/../../partials/head.php';
-require __DIR__ . '/../../partials/navbar.php';
-require __DIR__ . '/../../partials/header.php';
+require __DIR__ . '/../partials/head.php';
+require __DIR__ . '/../partials/navbar.php';
+require __DIR__ . '/../partials/header.php';
 ?>
 <main>
 
     <?php
-    require __DIR__ . '/../../partials/searchbar.php';
+    require __DIR__ . '/../partials/searchbar.php';
     ?>
 
     <section>
@@ -20,7 +20,7 @@ require __DIR__ . '/../../partials/header.php';
                     $card_img = '/assets/img/masashi_kishimoto.jpg';
                     $card_alt = $card->first_name . " " . $card->last_name;
                     $path = '/mangakas/mangaka?id=' . $card->Id_mangaka;
-                    require __DIR__ . '/../../partials/card.php';
+                    require __DIR__ . '/../partials/card.php';
                 }
                 ?>
             </div>
@@ -29,6 +29,6 @@ require __DIR__ . '/../../partials/header.php';
 
 </main>
 <?php
-require __DIR__ . '/../../partials/footer.php';
-require __DIR__ . '/../../partials/foot.php';
+require __DIR__ . '/../partials/footer.php';
+require __DIR__ . '/../partials/foot.php';
 ?>

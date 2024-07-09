@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__ . '/../../partials/head.php';
-require __DIR__ . '/../../partials/navbar.php';
-require __DIR__ . '/../../partials/header.php';
+require __DIR__ . '/../partials/head.php';
+require __DIR__ . '/../partials/navbar.php';
+require __DIR__ . '/../partials/header.php';
 ?>
 <main>
   <section class="container d-flex my-5">
@@ -29,6 +29,6 @@ require __DIR__ . '/../../partials/header.php';
   </section>
 </main>
 <?php
-require __DIR__ . '/../../partials/footer.php';
-require __DIR__ . '/../../partials/foot.php';
+require __DIR__ . '/../partials/footer.php';
+require __DIR__ . '/../partials/foot.php';
 ?>

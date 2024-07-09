@@ -119,12 +119,12 @@ class App
         $router->get('/', 'controllers\IndexController', 'index');
         $router->get('/logout', 'controllers\AuthController', 'logout');
 
-        $router->get('/login', 'controllers\AuthController', 'indexLogin');
-        $router->post('/login', 'controllers\AuthController', 'login');
+        $router->get('/login', 'controllers\AuthController', 'indexLogin')->middleware('guest');
+        $router->post('/login', 'controllers\AuthController', 'login')->middleware('guest');
         $router->get('/managment', 'controllers\AuthController', 'managment');
 
-        $router->get('/register', 'controllers\AuthController', 'indexRegister');
-        $router->post('/register', 'controllers\AuthController', 'register');
+        $router->get('/register', 'controllers\AuthController', 'indexRegister')->middleware('guest');
+        $router->post('/register', 'controllers\AuthController', 'register')->middleware('guest');
 
         $router->get('/mangas', 'controllers\MangasController', 'index');
         $router->post('/mangas', 'controllers\MangasController', 'post');
@@ -136,6 +136,8 @@ class App
 
         $router->get('/genres', 'controllers\TagsController', 'index');
         $router->get('/genres/genre', 'controllers\TagsController', 'show');
+
+        $router->get('/favories', 'controllers\FavoriesController', 'index')->middleware('auth');
 
         return $router;
     }

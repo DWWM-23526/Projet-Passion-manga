@@ -39,4 +39,17 @@ class BaseRepository
         )->fetchAll();
     }
 
+    protected function searchByStringMangaka(string $table, string $searchTerm)
+    {
+        return $this->db->query(
+            "SELECT * FROM $table WHERE first_name LIKE :searchTerm OR last_name LIKE :searchTerm2",
+            [
+                'searchTerm' => "%$searchTerm%",
+                'searchTerm2' => "%$searchTerm%"
+            ]
+        )->fetchAll();
+    }
+
+
+
 }

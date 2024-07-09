@@ -13,7 +13,6 @@ class MangakaRepository extends BaseRepository
   {
     $result = $this->getAll($this->table);
     return array_map(fn ($data) => new Mangaka($data), $result);
-    return array_map(fn ($data) => (new Mangaka($data))->toArray(), $result);
   }
 
   public function getMangakaById(int $id)
@@ -22,9 +21,9 @@ class MangakaRepository extends BaseRepository
     return $result ? new Mangaka($result) : null;
   }
 
-  public function searchMangakas(string $searchTerm, string $searchTerm2)
+  public function searchMangakas(string $searchTerm)
   {
-    $result = $this->searchByStringMangaka($this->table, $searchTerm, $searchTerm2);
+    $result = $this->searchByStringMangaka($this->table, $searchTerm);
     return array_map(fn ($data) => new Mangaka($data), $result);
   }
 }

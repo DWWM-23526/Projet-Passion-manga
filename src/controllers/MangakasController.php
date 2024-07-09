@@ -32,7 +32,7 @@ class MangakasController extends Controller
     if (isset($_POST['search']) && !empty(($_POST['search']))) {
       $searchTerm = $_POST['search'];
       $searchTerm2 = $_POST['search'];
-      $cardsTab = $this->mangakaService->searchMangakas($searchTerm, $searchTerm2);
+      $cardsTab = $this->mangakaService->searchMangakas($searchTerm);
 
       $this->render('/mangakas/index.mangakas.view.php', [
         'cardsTab' => $cardsTab,

@@ -31,13 +31,11 @@ class AuthService extends BaseRepository
     $_SESSION["user"] = [
       "id" => $user->Id_user,
       "email" => $user->email,
-      "email" => $user->email,
       "pseudo" => $user->pseudo
     ];
     return;
   }
 
-  public function register($pseudo, $password, $email)
   public function register($pseudo, $password, $email)
   {
     $pattern = '/^(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-zA-Z]).{8,}$/';
@@ -54,7 +52,6 @@ class AuthService extends BaseRepository
     }
 
     if (empty($errors)) {
-      return $this->userRepository->registerUser($pseudo, $password, $email);
       return $this->userRepository->registerUser($pseudo, $password, $email);
     } else {
       var_dump($errors);

@@ -14,7 +14,7 @@ require __DIR__ . '/../../partials/header.php';
       <div>
         <h3 class="mb-5"><strong>INFORMATION</strong></h3>
         <p><strong>Nom:</strong> <?= $mangaka->first_name; ?></p>
-        <p><strong>Prénom:</strong> <?= $mangaka->lastName; ?></p>
+        <p><strong>Prénom:</strong> <?= $mangaka->last_name; ?></p>
         <p><strong>Naissance:</strong> <?= $mangaka->birthdate; ?></p>
       </div>
       <div class="mt-5">

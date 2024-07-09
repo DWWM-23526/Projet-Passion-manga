@@ -44,13 +44,22 @@ class AuthController extends Controller
         ]);
     }
 
+    public function managment()
+    {
+        $headerTitle = 'GESTION DE COMPTE';
+
+        $this->render('/login/managment.view.php', [
+            'headerTitle' => $headerTitle,
+        ]);
+    }
+
     public function logout()
     {
 
         $this->authService->logoutUser();
         $headerTitle = 'BIENVENUE SUR PASSION MANGAS';
 
-        $this->render('/index.view.php',[
+        $this->render('/index.view.php', [
             'headerTitle' => $headerTitle
         ]);
     }
@@ -77,5 +86,4 @@ class AuthController extends Controller
             exit();
         }
     }
-
 }

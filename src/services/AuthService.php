@@ -18,11 +18,17 @@ class AuthService extends BaseRepository
 
   public function autentication(string $email, string $password)
   {
+    $errors = [];
     $user = $this->userRepository->getByEmail($email);
-    if (!$user && !password_verify($password, $user->password)) {
-      exit("error");
+    if (!$user || !password_verify($password, $user->password)) {
+      $errors["passwordError"] = "MDP ou email incorrect";
     }
-    return $user;
+
+    if (empty($errors)) {
+      return $user;
+    } else {
+      return $errors;
+    }
   }
 
 

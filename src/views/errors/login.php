@@ -1,2 +1,2 @@
-<h1> Vous etes dejas conneté </h1>
+<h1> Vous etes déjà connecté </h1>
 <a href="/">retour sur home page</a>

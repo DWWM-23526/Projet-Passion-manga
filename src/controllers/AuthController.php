@@ -29,9 +29,17 @@ class AuthController extends Controller
         $userEmail = $_POST['email'];
         $password = $_POST['password'];
         $user = $this->authService->autentication($userEmail, $password);
-        $user = $this->authService->login($user);
-        header('Location: /');
-        exit();
+        if (is_array($user)) {
+            $headerTitle = 'CONNEXION';
+            $this->render('/login/login.view.php', [
+                'headerTitle' => $headerTitle,
+                'errors' => $user
+            ]);
+        } else {
+            $user = $this->authService->login($user);
+            header('Location: /');
+            exit();
+        }
     }
 
     public function IndexRegister()

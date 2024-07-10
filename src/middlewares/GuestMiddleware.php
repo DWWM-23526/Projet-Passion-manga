@@ -11,7 +11,7 @@ class GuestMiddleware extends Middleware
             
             require_once __DIR__ . '/../utils/urlis.php';
 
-            if (urlIs('/login')) {
+            if (urlIs('/login') || urlIs('/register')){
                 $this->redirect('login');
                 exit();
             }

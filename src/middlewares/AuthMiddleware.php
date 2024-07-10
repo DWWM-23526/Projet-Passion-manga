@@ -7,7 +7,7 @@ class AuthMiddleware extends Middleware
 
     public function handle()
     {
-        if (!$_SESSION['user'] ) {
+        if (!isset($_SESSION['user'])) {
             $this->abort(403);
             exit();
         }

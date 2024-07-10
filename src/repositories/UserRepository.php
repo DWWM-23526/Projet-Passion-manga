@@ -7,12 +7,19 @@ use models\Users;
 class UserRepository extends BaseRepository
 {
   private string $table = 'users';
+  private string $idTable = 'Id_user';
 
 
   public function getAllUser()
   {
     $result = $this->getAll($this->table);
     return array_map(fn ($data) => new Users($data), $result);
+  }
+
+  public function getUserById($id)
+  {
+    $result = $this->getById($this->table, $this->idTable, $id);
+    return new Users($result);
   }
 
   public function getByEmail(string $email)

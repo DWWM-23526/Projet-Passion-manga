@@ -7,6 +7,7 @@ use repositories\MangaRepository;
 use repositories\TagsRepository;
 use repositories\UserRepository;
 use services\AuthService;
+use services\JwtService;
 use services\MangakaService;
 use services\MangaService;
 use services\TagsService;
@@ -108,6 +109,10 @@ class App
 
         $containerServices->setContainer(AuthService::class, function () {
             return new AuthService();
+        });
+
+        $containerServices->setContainer(JwtService::class, function () {
+            return new JwtService();
         });
 
         App::setServiceContainer($containerServices);

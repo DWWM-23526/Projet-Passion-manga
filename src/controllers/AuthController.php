@@ -6,13 +6,17 @@ namespace controllers;
 use controllers\Controller;
 use core\App;
 use services\AuthService;
+use services\JwtService;
 
 class AuthController extends Controller
 {
     protected AuthService $authService;
+    protected JwtService $jwtService;
+
     public function __construct()
     {
         $this->authService = App::injectService()->getContainer(AuthService::class);
+        $this->jwtService = App::injectService()->getContainer(JwtService::class);
     }
 
     public function indexLogin()
@@ -36,7 +40,9 @@ class AuthController extends Controller
                 'errors' => $user
             ]);
         } else {
-            $user = $this->authService->login($user);
+            $token = $this->jwtService->generateToken($user);
+            setcookie('AuthToken', $token, time()+ (60*60), "/", "", false, true);
+            $user = $this->authService->setUser($user);
             header('Location: /');
             exit();
         }
@@ -89,7 +95,7 @@ class AuthController extends Controller
             ]);
         } else {
             $user = $this->authService->autentication($registerEmail, $registerPassword);
-            $user = $this->authService->login($user);
+            $user = $this->authService->setUser($user);
             header('Location: /');
             exit();
         }

@@ -11,6 +11,7 @@ use services\JwtService;
 use services\MangakaService;
 use services\MangaService;
 use services\TagsService;
+use services\UserService;
 
 class App
 {
@@ -113,6 +114,10 @@ class App
 
         $containerServices->setContainer(JwtService::class, function () {
             return new JwtService();
+        });
+
+        $containerServices->setContainer(UserService::class, function () {
+            return new UserService();
         });
 
         App::setServiceContainer($containerServices);

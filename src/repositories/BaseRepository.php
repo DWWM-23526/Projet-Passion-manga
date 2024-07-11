@@ -26,4 +26,17 @@ class BaseRepository
             ['id' => $id]
         )->fetchOrFail();
     }
+
+    protected function save(string $query, $value = [])
+    {
+        return $this->db->query($query, $value);
+    }
+
+    protected function delete(string $table, int $id)
+    {
+        return $this->db->query(
+            "SELECT * FROM {$table} where {$idTable} = :id",
+            ['id' => $id]
+        )
+    }
 }

@@ -14,7 +14,7 @@ class MangaRepository extends BaseRepository
         parent::__construct();
     }
 
-    // GET
+    // BASIC CRUD
 
     public function getAllMangas()
     {
@@ -27,6 +27,89 @@ class MangaRepository extends BaseRepository
         $result = $this->getById($this->table, $this->idTable, $id);
         return $result ? new Manga($result) : null;
     }
+
+
+    public function createManga(Manga $manga)
+    {
+        $query = "INSERT INTO mangas(
+                    Id_manga, 
+                    img_manga, 
+                    manga_name, 
+                    edition,
+                    total_tome_number, 
+                    year_release, 
+                    tome_number, 
+                    texte, 
+                    Id_mangaka) 
+                VALUES (
+                    :Id_manga, 
+                    :img_manga, 
+                    :manga_name, 
+                    :edition, 
+                    :total_tome_number, 
+                    :year_release, 
+                    :tome_number, 
+                    :texte, 
+                    :Id_mangaka)";
+
+        $values = [
+            'Id_manga' => $manga->Id_manga,
+            'img_manga' => $manga->img_manga,
+            'manga_name' => $manga->manga_name,
+            'edition' => $manga->edition,
+            'total_tome_number' => $manga->total_tome_number,
+            'year_release' => $manga->year_release,
+            'tome_number' => $manga->tome_number,
+            'texte' => $manga->texte,
+            'Id_mangaka' => $manga->Id_mangaka,
+        ];
+
+        try {
+            $this->save($query, $values);
+        } catch (\PDOException $e) {
+            throw new \Exception('error on manga insert' . $e->getMessage());
+        }
+    }
+
+    public function updateManga(Manga $manga)
+    {
+
+        $query = "UPDATE mangas 
+              SET img_manga = :img_manga, 
+                  manga_name = :manga_name, 
+                  edition = :edition, 
+                  total_tome_number = :total_tome_number, 
+                  year_release = :year_release, 
+                  tome_number = :tome_number, 
+                  texte = :texte, 
+                  Id_mangaka = :Id_mangaka
+              WHERE Id_manga = :Id_manga";
+
+        $values = [
+            'Id_manga' => $manga->Id_manga,
+            'img_manga' => $manga->img_manga,
+            'manga_name' => $manga->manga_name,
+            'edition' => $manga->edition,
+            'total_tome_number' => $manga->total_tome_number,
+            'year_release' => $manga->year_release,
+            'tome_number' => $manga->tome_number,
+            'texte' => $manga->texte,
+            'Id_mangaka' => $manga->Id_mangaka,
+        ];
+
+        try {
+            $this->save($query, $values);
+        } catch (\PDOException $e) {
+            throw new \Exception('Erreur lors de la mise à jour du manga: ' . $e->getMessage());
+        }
+    }
+
+    public function deleteManga()
+    {
+        
+    }
+
+    // OTHER
 
     public function getMangasByTagID(int $id)
     {
@@ -45,6 +128,6 @@ class MangaRepository extends BaseRepository
             "SELECT * FROM $this->table WHERE manga_name LIKE :searchTerm",
             ['searchTerm' => "%$searchTerm%"]
         )->fetchAll();
-        return array_map(fn($data) => new Manga($data), $result);
+        return array_map(fn ($data) => new Manga($data), $result);
     }
 }

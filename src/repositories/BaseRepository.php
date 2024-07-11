@@ -32,11 +32,11 @@ class BaseRepository
         return $this->db->query($query, $value);
     }
 
-    protected function delete(string $table, int $id)
+    protected function delete(string $table, string $idTable, int $id)
     {
         return $this->db->query(
             "SELECT * FROM {$table} where {$idTable} = :id",
             ['id' => $id]
-        )
+        );
     }
 }

@@ -104,8 +104,9 @@ class MangaRepository extends BaseRepository
         }
     }
 
-    public function deleteManga()
+    public function deleteManga($id)
     {
+        $this->delete($this->table, $this->idTable, $id);
         
     }
 

@@ -8,7 +8,7 @@ class FavoriesController extends Controller
 
     public function index()
     {
-        $headerTitle = 'FAVORIES';
+        $headerTitle = 'MES FAVORIS';
 
         $this->render('/favories/favories.view.php',[
             'headerTitle' => $headerTitle

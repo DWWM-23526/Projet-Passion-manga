@@ -6,11 +6,11 @@ use \Firebase\JWT\JWT;
 use \Firebase\JWT\Key;
 
 
-class JwtService 
+class JwtService
 {
 
     private string $key;
-    
+
     public function __construct()
     {
         $this->key = require_once __DIR__ . '/../../.env/secretKey.php';
@@ -21,7 +21,7 @@ class JwtService
         $payload = [
             'iss' => "passionmanga",
             'iat' => time(),
-            'exp' => time() + (60*60),
+            'exp' => time() + (60 * 60),
             'userId' => $user->Id_user,
             'email' => $user->email,
         ];
@@ -38,5 +38,4 @@ class JwtService
             return null;
         }
     }
-
 }

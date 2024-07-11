@@ -4,7 +4,7 @@ namespace models;
 
 class Users
 {
-  public int $Id_user;
+  public ?int $Id_user;
   public ?string $password;
   public ?string $email;
   public ?string $pseudo;

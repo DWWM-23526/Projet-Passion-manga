@@ -7,16 +7,19 @@ use controllers\Controller;
 use core\App;
 use services\AuthService;
 use services\JwtService;
+use services\MailerService;
 
 class AuthController extends Controller
 {
     protected AuthService $authService;
     protected JwtService $jwtService;
+    protected MailerService $mailerService;
 
     public function __construct()
     {
         $this->authService = App::injectService()->getContainer(AuthService::class);
         $this->jwtService = App::injectService()->getContainer(JwtService::class);
+        $this->mailerService = App::injectService()->getContainer(MailerService::class);
     }
 
     public function indexLogin()
@@ -99,11 +102,7 @@ class AuthController extends Controller
                 'errors' => $user
             ]);
         } else {
-            $user = $this->authService->autentication($registerEmail, $registerPassword);
-            $token = $this->jwtService->generateToken($user);
-            
-            setcookie('AuthToken', $token, time()+ (60*60), "/", "", false, true);
-            $this->authService->setUser($user);
+            $this->mailerService->sendConfirmationEmail($user);
             header('Location: /');
             exit();
         }

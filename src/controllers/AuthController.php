@@ -47,7 +47,7 @@ class AuthController extends Controller
         } else {
             $token = $this->jwtService->generateToken($user);
             setcookie('AuthToken', $token, time()+ (60*60), "/", "", false, true);
-            $user = $this->authService->setUser($user);
+            $this->authService->setUser($user);
             header('Location: /');
             exit();
         }
@@ -100,7 +100,10 @@ class AuthController extends Controller
             ]);
         } else {
             $user = $this->authService->autentication($registerEmail, $registerPassword);
-            $user = $this->authService->setUser($user);
+            $token = $this->jwtService->generateToken($user);
+            
+            setcookie('AuthToken', $token, time()+ (60*60), "/", "", false, true);
+            $this->authService->setUser($user);
             header('Location: /');
             exit();
         }

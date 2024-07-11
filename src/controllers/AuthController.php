@@ -28,6 +28,11 @@ class AuthController extends Controller
         ]);
     }
 
+    public function validRegister()
+    {
+        // todo
+    }
+
     public function login()
     {
         $userEmail = $_POST['email'];

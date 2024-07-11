@@ -31,6 +31,11 @@ class AuthController extends Controller
         ]);
     }
 
+    public function validRegister()
+    {
+        // todo
+    }
+
     public function login()
     {
         $userEmail = $_POST['email'];
@@ -45,7 +50,7 @@ class AuthController extends Controller
         } else {
             $token = $this->jwtService->generateToken($user);
             setcookie('AuthToken', $token, time()+ (60*60), "/", "", false, true);
-            $user = $this->authService->setUser($user);
+            $this->authService->setUser($user);
             header('Location: /');
             exit();
         }

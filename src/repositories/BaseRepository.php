@@ -19,11 +19,26 @@ class BaseRepository
         return $this->db->query("SELECT * FROM {$table} ")->fetchAll();
     }
 
-    protected function getById(string $table, string $idTable, int $id)
+    protected function getById(string $table, string $idColum, int $id)
     {
         return $this->db->query(
-            "SELECT * FROM {$table} where {$idTable} = :id",
+            "SELECT * FROM {$table} where {$idColum} = :id",
             ['id' => $id]
         )->fetchOrFail();
     }
+
+    protected function getAllById(string $table, string $idColum, int $id)
+    {
+        return $this->db->query(
+            "SELECT * FROM {$table} where {$idColum} = :id",
+            ['id' => $id]
+        )->fetchAll();
+    }
+
+    protected function save(string $query, $value = [])
+    {
+        return $this->db->query($query, $value);
+    }
+
+
 }

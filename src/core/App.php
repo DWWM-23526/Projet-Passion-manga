@@ -2,11 +2,13 @@
 
 namespace core;
 
+use repositories\FavoriesRepository;
 use repositories\MangakaRepository;
 use repositories\MangaRepository;
 use repositories\TagsRepository;
 use repositories\UserRepository;
 use services\AuthService;
+use services\FavoriesService;
 use services\JwtService;
 use services\MailerService;
 use services\MangakaService;
@@ -91,6 +93,10 @@ class App
             return new UserRepository();
         });
 
+        $containerRepositories->setContainer(FavoriesRepository::class, function () {
+            return new FavoriesRepository();
+        });
+
         App::setRepositoriesContainer($containerRepositories);
 
         // SERVICES CONTAINER INIT
@@ -125,6 +131,10 @@ class App
             return new MailerService();
         });
 
+        $containerServices->setContainer(FavoriesService::class, function () {
+            return new FavoriesService();
+        });
+
         App::setServiceContainer($containerServices);
 
         // ROUTER INIT
@@ -152,7 +162,7 @@ class App
         $router->get('/genres', 'controllers\TagsController', 'index');
         $router->get('/genres/genre', 'controllers\TagsController', 'show');
 
-        $router->get('/favories', 'controllers\FavoriesController', 'index')->middleware('auth');
+        $router->get('/favories/user', 'controllers\FavoriesController', 'index')->middleware('auth');
 
         return $router;
     }

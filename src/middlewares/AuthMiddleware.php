@@ -31,6 +31,7 @@ class AuthMiddleware extends Middleware
 
         $this->verifyUserId($userTokenDecoded);
         $this->verifyUserEmail($userTokenDecoded);
+        $this->verifyUserIdFavories($userTokenDecoded);
     }
 
     private function decodeToken()
@@ -68,4 +69,23 @@ class AuthMiddleware extends Middleware
             $this->abort(401);
         }
     }
+
+    private function verifyUserIdFavories($tokenDecoded)
+    {
+        if (!str_contains($_SERVER['REQUEST_URI'], "/favories/user" )) {
+            return;
+            
+        } else {
+
+            $tokenUserId = $tokenDecoded['userId'];
+            $urlUserId = $_GET['id'];
+
+            if ($tokenUserId == $urlUserId) {
+                return;
+            } else {
+                $this->abort(401);
+            }
+        }
+    }
 }
+ 

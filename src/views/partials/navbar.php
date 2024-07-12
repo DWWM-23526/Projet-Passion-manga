@@ -1,4 +1,4 @@
-<?php require __DIR__ . '/../../utils/urlis.php' ?> 
+<?php require __DIR__ . '/../../utils/urlis.php' ?>
 
 <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
@@ -20,19 +20,19 @@
                     </li>
                 </div>
                 <?php if (!isset($_SESSION["user"])) : ?>
-                <li class="nav-item">
-                    <a class="nav-link <?= urlIs('/login') ? 'isActive' : '' ?>" href="/login">Connexion</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= urlIs('/login') ? 'isActive' : '' ?>" href="/login">Connexion</a>
+                    </li>
                 <?php else : ?>
-                <li class="nav-item">
-                    <a class="nav-link <?= urlIs('/managment') ? 'isActive' : '' ?>" href="/managment">Bonjour <?= $_SESSION["user"]["pseudo"]?></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= urlIs('/favories') ? 'isActive' : '' ?>" href="/favories">Mes favoris</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= urlIs('/login') ? 'isActive' : '' ?>" href="/logout">Déconnexion</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= urlIs('/managment') ? 'isActive' : '' ?>" href="/managment">Bonjour <?= $_SESSION["user"]["pseudo"] ?></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= urlIs('/favories/user') ? 'isActive' : '' ?>" href="/favories/user?id=<?= $_SESSION['user']['id'] ?>">Mes favoris</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= urlIs('/login') ? 'isActive' : '' ?>" href="/logout">Déconnexion</a>
+                    </li>
                 <?php endif; ?>
             </ul>
         </div>

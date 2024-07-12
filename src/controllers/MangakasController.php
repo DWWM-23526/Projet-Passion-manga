@@ -14,6 +14,7 @@ class MangakasController extends Controller
   {
     $this->mangakaService = App::injectService()->getContainer(MangakaService::class);
   }
+  
   public function index()
   {
     $headerTitle = "LES MANGAKAS";

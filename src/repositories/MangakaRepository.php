@@ -9,11 +9,6 @@ class MangakaRepository extends BaseRepository
   private string $table = 'mangakas';
   private string $idTable = "Id_mangaka";
 
-  public function __construct()
-  {
-    parent::__construct();
-  }
-
   public function getAllMangakas()
   {
     $result = $this->getAll($this->table);

@@ -9,11 +9,7 @@ class MangaRepository extends BaseRepository
     private string $table = 'mangas';
     private string $idTable = "Id_manga";
 
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
+   
     // BASIC CRUD
 
     public function getAllMangas()
@@ -104,11 +100,11 @@ class MangaRepository extends BaseRepository
         }
     }
 
-    public function deleteManga($id)
-    {
-        $this->delete($this->table, $this->idTable, $id);
+    // public function deleteManga($id)
+    // {
+    //     $this->delete($this->table, $this->idTable, $id);
         
-    }
+    // }
 
     // OTHER
 
@@ -123,7 +119,6 @@ class MangaRepository extends BaseRepository
     }
 
     public function searchByStringManga(string $searchTerm)
-
     {
         $result = $this->db->query(
             "SELECT * FROM $this->table WHERE manga_name LIKE :searchTerm",

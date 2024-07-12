@@ -33,4 +33,17 @@ class MangaService
     {
         return $this->mangaRepository->getMangasByTagID($id);
     }
+
+    public function getAllMangasByID(array $favories)
+    {
+        $mangas = [];
+        foreach ($favories as $favoris) {
+            $manga = $this->mangaRepository->getMangaById($favoris->Id_manga);
+            if ($manga) {
+                $mangas[] = $manga;
+            }
+        }
+
+        return $mangas;
+    }
 }

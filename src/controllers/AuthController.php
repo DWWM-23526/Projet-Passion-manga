@@ -49,7 +49,7 @@ class AuthController extends Controller
             ]);
         } else {
             $token = $this->jwtService->generateToken($user);
-            setcookie('AuthToken', $token, time()+ (60*60), "/", "", false, true);
+            setcookie('AuthToken', $token, time() + (60 * 60), "/", "", false, true);
             $this->authService->setUser($user);
             header('Location: /');
             exit();
@@ -86,6 +86,14 @@ class AuthController extends Controller
         ]);
     }
 
+    public function loginAfterRegister()
+    {
+        $headerTitle = 'BIENVENUE SUR PASSION MANGAS';
+        $this->render('/login/emailConfirm.view.php', [
+            'headerTitle' => $headerTitle,
+        ]);
+    }
+
     public function Register()
     {
 
@@ -103,6 +111,7 @@ class AuthController extends Controller
             ]);
         } else {
             $this->mailerService->sendConfirmationEmail($user);
+
             header('Location: /');
             exit();
         }

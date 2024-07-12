@@ -45,6 +45,7 @@ class MailerService
             'pseudo' => $user->pseudo,
             'email' => $user->email,
             'password'=> $user->password,
+            'cle'=> $this->cle,
         ];
 
         return JWT::encode($payload, $this->conf['key'], 'HS256');
@@ -78,7 +79,8 @@ class MailerService
   public function sendConfirmationEmail($user)
   {
     $subject = 'Email de confirmation de compte';
-    $msg = '<button><a href="http://passionmanga/emailConfirm.view.php?cle=' . $this->cle . '">Confirmer mon compte</a></button>';
+    $msg = '<button><a href="http://passionmanga/confirmMail" 
+    >Confirmer mon compte</a></button>';
     return $this->sendEmail($subject, $msg, $user->email);
   }
 }

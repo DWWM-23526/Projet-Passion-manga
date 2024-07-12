@@ -140,6 +140,7 @@ class App
 
         $router->get('/register', 'controllers\AuthController', 'indexRegister')->middleware('guest');
         $router->post('/register', 'controllers\AuthController', 'register')->middleware('guest');
+        $router->get('/confirmMail', 'controllers\AuthController', 'loginAfterRegister');
 
         $router->get('/mangas', 'controllers\MangasController', 'index');
         $router->post('/mangas', 'controllers\MangasController', 'post');

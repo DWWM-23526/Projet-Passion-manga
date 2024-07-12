@@ -32,7 +32,6 @@ class AuthService extends BaseRepository
     }
   }
 
-
   public function setUser($user)
   {
     $_SESSION["user"] = [

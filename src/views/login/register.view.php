@@ -25,10 +25,6 @@ require_once __DIR__ . '/../partials/header.php';
                                 <label for="pwd">Password:</label>
                                 <input type="password" class="form-control" name="password" id="pwd" placeholder="Enter password" required>
                             </div>
-                            <!-- <div class="form-group mt-4">
-                                <label for="pwd">Confirm Password:</label>
-                                <input type="password" class="form-control" id="pwd_conf" placeholder="Confirm password">
-                            </div> -->
                             <button type="submit" class="btn btn-dark btn-block mt-4">Submit</button>
                         </form>
                         <div class="mt-3">

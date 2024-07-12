@@ -17,7 +17,7 @@
   <!-- Copyright -->
   <div class="text-center text-white py-2" style="background-color:#000;">
     © 2024 Copyright:
-    <p class="text-white" href="https://mdbootstrap.com/">Passion-mangas.fr</p>
+    <p class="text-white">Passion-mangas.fr</p>
   </div>
   <!-- Copyright -->
 </footer>

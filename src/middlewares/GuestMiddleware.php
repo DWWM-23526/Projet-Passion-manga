@@ -2,6 +2,8 @@
 
 namespace middlewares;
 
+use core\HTTPResponse;
+
 class GuestMiddleware extends Middleware
 {
     public function handle()
@@ -12,11 +14,11 @@ class GuestMiddleware extends Middleware
             require_once __DIR__ . '/../utils/urlis.php';
 
             if (urlIs('/login') || urlIs('/register')){
-                $this->redirect('login');
+                HTTPResponse::redirect('/', 401);
                 exit();
             }
 
-            $this->abort(403);
+            HTTPResponse::abort(403);
             exit();
         }
     }

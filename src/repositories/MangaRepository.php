@@ -48,17 +48,7 @@ class MangaRepository extends BaseRepository
                     :texte, 
                     :Id_mangaka)";
 
-        $values = [
-            'Id_manga' => $manga->Id_manga,
-            'img_manga' => $manga->img_manga,
-            'manga_name' => $manga->manga_name,
-            'edition' => $manga->edition,
-            'total_tome_number' => $manga->total_tome_number,
-            'year_release' => $manga->year_release,
-            'tome_number' => $manga->tome_number,
-            'texte' => $manga->texte,
-            'Id_mangaka' => $manga->Id_mangaka,
-        ];
+        $values = Manga::toArray($manga);
 
         try {
             $this->save($query, $values);

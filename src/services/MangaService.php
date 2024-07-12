@@ -46,4 +46,5 @@ class MangaService
 
         return $mangas;
     }
+
 }

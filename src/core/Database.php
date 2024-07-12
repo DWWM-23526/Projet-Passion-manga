@@ -22,7 +22,6 @@ class Database
             PDO::ATTR_EMULATE_PREPARES => false,
         ];
         $this->connexion = $this->connexion($dsn, $config['user'], $config['pass'], $option);
-
     }
 
     private function fetch()
@@ -34,16 +33,24 @@ class Database
     {
         $result = $this->fetch();
 
-        if (!$result)
-        {
-            // abort
+        if (!$result) {
+            // HTTPResponse::abort(404);
         }
+
+        HTTPResponse::setStatusCode(200);
         return $result;
     }
 
     public function fetchAll()
     {
-        return $this->statement->fetchAll();
+        $result = $this->statement->fetchAll();
+
+        if (!$result) {
+            HTTPResponse::abort(404);
+        }
+
+        HTTPResponse::setStatusCode(200);
+        return $result;
     }
 
 
@@ -56,11 +63,11 @@ class Database
         return self::$instance;
     }
 
-    public function query(string $query, array $params = []) {
+    public function query(string $query, array $params = [])
+    {
         $this->statement = $this->connexion->prepare($query);
         $this->statement->execute($params);
         return $this;
-
     }
 
     private function connexion(string $dsn, string $user, string $pass, array $option)
@@ -68,13 +75,10 @@ class Database
 
         try {
             $pdo = new PDO($dsn, $user, $pass, $option);
-
-        } catch (PDOException $e)  {
+        } catch (PDOException $e) {
             throw new PDOException($e->getMessage(), (int)$e->getCode());
         }
 
         return $pdo;
     }
-
-
 }

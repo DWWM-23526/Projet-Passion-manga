@@ -153,7 +153,10 @@ class App
 
         $router->get('/mangas', 'controllers\MangasController', 'index');
         $router->post('/mangas', 'controllers\MangasController', 'post');
+        
         $router->get('/mangas/manga', 'controllers\MangasController', 'show');
+        $router->post('/mangas/manga', 'controllers\MangasController', 'addFav');
+        $router->delete('/mangas/manga', 'controllers\MangasController', 'deleteFav');
 
         $router->get('/mangakas', 'controllers\MangakasController', 'index');
         $router->post('/mangakas', 'controllers\MangakasController', 'post');

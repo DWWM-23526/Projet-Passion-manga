@@ -1,0 +1,29 @@
+nav {
+    background-color: white;
+    font-weight: bold;
+   
+}
+
+.isActive {
+    font-weight: bold;
+    color: red !important;
+
+}
+
+.nav-item{
+    font-size: 1.5rem;
+    font-weight: bold !important;
+}
+
+li .nav-item a {
+    font-weight: bold !important;
+}
+
+
+li .nav-item a:hover {
+    color: red;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+}

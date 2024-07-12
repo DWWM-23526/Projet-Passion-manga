@@ -20,7 +20,7 @@ class AuthMiddleware extends Middleware
     public function handle()
     {
         if (!isset($_SESSION['user'])) {
-            $this->abort(401);
+            $this->abort(403);
         }
 
         if (!isset($_COOKIE['AuthToken'])) {
@@ -73,7 +73,7 @@ class AuthMiddleware extends Middleware
     private function verifyUserIdFavories($tokenDecoded)
     {
         if (!str_contains($_SERVER['REQUEST_URI'], "/favories/user" )) {
-            $this->abort(403);
+            return;
             
         } else {
 
@@ -83,8 +83,9 @@ class AuthMiddleware extends Middleware
             if ($tokenUserId == $urlUserId) {
                 return;
             } else {
-                $this->abort(403);
+                $this->abort(401);
             }
         }
     }
 }
+ 

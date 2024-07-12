@@ -33,7 +33,7 @@ class AuthController extends Controller
 
     public function validRegister()
     {
-        // todo
+        
     }
 
     public function login()
@@ -116,4 +116,5 @@ class AuthController extends Controller
             exit();
         }
     }
+
 }

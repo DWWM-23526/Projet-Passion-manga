@@ -4,6 +4,7 @@ namespace services;
 
 use core\App;
 use models\Users;
+use repositories\AuthEmailRepository;
 use repositories\BaseRepository;
 use repositories\UserRepository;
 
@@ -11,10 +12,12 @@ class AuthService extends BaseRepository
 {
 
   protected UserRepository $userRepository;
+  protected AuthEmailRepository $authEmailRepository;
 
   public function __construct()
   {
     $this->userRepository = App::injectRepository()->getContainer(UserRepository::class);
+    $this->authEmailRepository = App::injectRepository()->getContainer(AuthEmailRepository::class);
   }
 
   public function autentication(string $email, string $password)
@@ -67,6 +70,11 @@ class AuthService extends BaseRepository
       var_dump($errors);
       return $errors;
     }
+  }
+
+  public function insertEmail(string $email, int $cle)
+  {
+    return $this->authEmailRepository->insertEmail($email, $cle);
   }
 
   public function deleteAccount()

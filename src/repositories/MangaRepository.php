@@ -9,7 +9,6 @@ class MangaRepository extends BaseRepository
     private string $table = 'mangas';
     private string $idTable = "Id_manga";
 
-   
     // BASIC CRUD
 
     public function getAllMangas()

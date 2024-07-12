@@ -2,6 +2,7 @@
 
 namespace core;
 
+use handler\AuthHandler;
 use repositories\FavoriesRepository;
 use repositories\MangakaRepository;
 use repositories\MangaRepository;
@@ -21,6 +22,7 @@ class App
     protected static Container $container;
     protected static Container $servicesContainer;
     protected static Container $repositoriesContainer;
+    protected static Container $handlersContainer;
 
     // CONTAINER
 
@@ -56,6 +58,13 @@ class App
     public static function injectRepository()
     {
         return static::$repositoriesContainer;
+    }
+
+    // HANDLER
+
+    protected static function setHandlerContainer(Container $container)
+    {
+        static::$handlersContainer = $container;
     }
 
     // INITIALIZATION
@@ -136,6 +145,15 @@ class App
         });
 
         App::setServiceContainer($containerServices);
+
+        // HANDLER CONTAINER INIT 
+        $containerHandlers = new Container;
+
+        $containerHandlers->setContainer(AuthHandler::class, function () {
+            return new AuthHandler();
+        });
+
+        App::setHandlerContainer($containerHandlers);
 
         // ROUTER INIT
 

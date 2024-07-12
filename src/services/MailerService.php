@@ -20,7 +20,7 @@ class MailerService
   public function __construct()
   {
     $this->mail = new PHPMailer();
-    $this->conf = require_once __DIR__ ."/../../.env/mailServiceConfig.php";
+    $this->conf = require_once __DIR__ . "/../../.env/mailServiceConfig.php";
     $this->cle = rand(1000000, 9000000);
     $this->mail->isSMTP();
     $this->mail->SMTPAuth = true;
@@ -37,30 +37,30 @@ class MailerService
   }
 
   protected function generateToken($user)
-    {
-        $payload = [
-            'iss' => "passionmanga",
-            'iat' => time(),
-            'exp' => time() + (60 * 60),
-            'pseudo' => $user->pseudo,
-            'email' => $user->email,
-            'password'=> $user->password,
-            'cle'=> $this->cle,
-        ];
+  {
+    $payload = [
+      'iss' => "passionmanga",
+      'iat' => time(),
+      'exp' => time() + (60 * 60),
+      'pseudo' => $user->pseudo,
+      'email' => $user->email,
+      'password' => $user->password,
+      'cle' => $this->cle,
+    ];
 
-        return JWT::encode($payload, $this->conf['key'], 'HS256');
-    }
+    return JWT::encode($payload, $this->conf['key'], 'HS256');
+  }
 
   public function setRecipient($email)
-    {
-        $this->mail->clearAddresses();
-        $this->mail->addAddress($email);
-    }
+  {
+    $this->mail->clearAddresses();
+    $this->mail->addAddress($email);
+  }
 
-    public function setBody($body)
-    {
-        $this->mail->Body = $body;
-    }
+  public function setBody($body)
+  {
+    $this->mail->Body = $body;
+  }
 
   public function sendEmail($subject, $body, $recipient)
   {
@@ -78,9 +78,12 @@ class MailerService
 
   public function sendConfirmationEmail($user)
   {
+    $token = $this->generateToken($user);
+    $verificationLink = "http://passionmanga/confirmMail?token=$token";
     $subject = 'Email de confirmation de compte';
-    $msg = '<button><a href="http://passionmanga/confirmMail" 
-    >Confirmer mon compte</a></button>';
+    $msg = "Cliquez sur ce bouton pour confirmer votre compte :
+    <button><a href='$verificationLink'
+    >Confirmer mon compte</a></button>";
     return $this->sendEmail($subject, $msg, $user->email);
   }
 }

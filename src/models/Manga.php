@@ -27,7 +27,7 @@ class Manga
         $this->Id_mangaka = $data['Id_mangaka'] ?? 0;
     }
 
-    
+
     public function toArray(): array
     {
         return [

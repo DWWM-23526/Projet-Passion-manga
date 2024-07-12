@@ -10,6 +10,7 @@ use repositories\UserRepository;
 use services\AuthService;
 use services\FavoriesService;
 use services\JwtService;
+use services\MailerService;
 use services\MangakaService;
 use services\MangaService;
 use services\TagsService;
@@ -124,6 +125,10 @@ class App
 
         $containerServices->setContainer(UserService::class, function () {
             return new UserService();
+        });
+
+        $containerServices->setContainer(MailerService::class, function () {
+            return new MailerService();
         });
 
         $containerServices->setContainer(FavoriesService::class, function () {

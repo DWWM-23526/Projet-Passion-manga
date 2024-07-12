@@ -3,6 +3,7 @@
 namespace services;
 
 use core\App;
+use models\Users;
 use repositories\BaseRepository;
 use repositories\UserRepository;
 
@@ -58,7 +59,11 @@ class AuthService extends BaseRepository
     }
 
     if (empty($errors)) {
-      return $this->userRepository->registerUser($pseudo, $password, $email);
+      return new Users([
+        "pseudo" => $pseudo,
+        "password" => $password,
+        "email" => $email
+      ]);
     } else {
       var_dump($errors);
       return $errors;

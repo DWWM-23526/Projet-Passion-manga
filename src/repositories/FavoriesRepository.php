@@ -18,13 +18,24 @@ class FavoriesRepository extends BaseRepository
         return array_map(fn ($data) => new Favories($data), $result);
     }
 
+    public function getFavoriteByMangaId(string $id)
+    {
+        $result = $this->getById($this->table, $this->mangaColumId, $id);
+
+        if ($result === false) {
+            return null;
+        }
+
+        return new Favories($result);
+    }
+
     public function getFavoriesByUserId(string $id)
     {
         $result = $this->getAllById($this->table, $this->userColumId, $id);
         return array_map(fn ($data) => new Favories($data), $result);
     }
 
-    public function addToFavories(string $mangaId, string $userId)
+    public function addToFavories(int $mangaId, int $userId)
     {
         $this->db->query(
             "INSERT INTO {$this->table} ({$this->mangaColumId}, {$this->userColumId}) VALUES (:Id_manga, :Id_user)",
@@ -35,7 +46,7 @@ class FavoriesRepository extends BaseRepository
         );
     }
 
-    public function deleteFromFavories(string $mangaId, string $userId)
+    public function deleteFromFavories(int $mangaId, int $userId)
     {
         $this->db->query(
             "DELETE FROM {$this->table} WHERE {$this->mangaColumId} = :Id_manga  AND {$this->userColumId} = :Id_user",

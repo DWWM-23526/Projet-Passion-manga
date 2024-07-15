@@ -16,7 +16,6 @@ class Container
     public function getContainer(string $key)
     {
         if (isset($this->instances[$key])) {
-            
             if (is_callable($this->instances[$key])) {
                 $this->instances[$key] = call_user_func($this->instances[$key]);
             }

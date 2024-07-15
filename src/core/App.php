@@ -3,6 +3,7 @@
 namespace core;
 
 use handler\AuthHandler;
+use repositories\AuthEmailRepository;
 use repositories\FavoriesRepository;
 use repositories\MangakaRepository;
 use repositories\MangaRepository;
@@ -102,6 +103,10 @@ class App
             return new UserRepository();
         });
 
+        $containerRepositories->setContainer(AuthEmailRepository::class, function () {
+            return new AuthEmailRepository();
+        });
+
         $containerRepositories->setContainer(FavoriesRepository::class, function () {
             return new FavoriesRepository();
         });
@@ -147,7 +152,7 @@ class App
         App::setServiceContainer($containerServices);
 
         // HANDLER CONTAINER INIT 
-        $containerHandlers = new Container;
+        $containerHandlers = new Container();
 
         $containerHandlers->setContainer(AuthHandler::class, function () {
             return new AuthHandler();

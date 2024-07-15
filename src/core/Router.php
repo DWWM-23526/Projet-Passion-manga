@@ -84,6 +84,4 @@ class Router
         }
         HTTPResponse::abort();
     }
-
-    
 }

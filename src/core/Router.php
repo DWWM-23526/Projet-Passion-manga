@@ -4,6 +4,7 @@ namespace core;
 
 use Exception;
 use middlewares\Middleware;
+use core\HTTPResponse;
 
 class Router
 {
@@ -81,13 +82,8 @@ class Router
                 }
             }
         }
-        $this->abort();
+        HTTPResponse::abort();
     }
 
-    protected function abort(int $error = 404)
-    {
-        http_response_code($error);
-        require_once __DIR__ . '/../views/errors/404.php';
-        die();
-    }
+    
 }

@@ -4,6 +4,7 @@ namespace middlewares;
 
 use services\JwtService;
 use core\App;
+use core\HTTPResponse;
 use services\UserService;
 
 class AuthMiddleware extends Middleware
@@ -20,11 +21,11 @@ class AuthMiddleware extends Middleware
     public function handle()
     {
         if (!isset($_SESSION['user'])) {
-            $this->abort(403);
+            HTTPResponse::abort(403);
         }
 
         if (!isset($_COOKIE['AuthToken'])) {
-            $this->abort(401);
+            HTTPResponse::abort(401);
         }
 
         $userTokenDecoded = $this->decodeToken();
@@ -40,7 +41,7 @@ class AuthMiddleware extends Middleware
         $authTokenDecoded = $this->jwtService->validateToken($token);
 
         if (!$authTokenDecoded) {
-            $this->abort(401);
+            HTTPResponse::abort(401);
         }
 
         return $authTokenDecoded;
@@ -54,7 +55,7 @@ class AuthMiddleware extends Middleware
         $user = $this->userService->getUserById($tokenUserId);
 
         if (!$user || $sessionUserId !== $user->Id_user) {
-            $this->abort(401);
+            HTTPResponse::abort(401);
         }
     }
 
@@ -66,7 +67,7 @@ class AuthMiddleware extends Middleware
         $user = $this->userService->getUserByEmail($tokenEmail);
 
         if (!$user || $sessionUserEmail !== $user->email) {
-            $this->abort(401);
+            HTTPResponse::abort(401);
         }
     }
 
@@ -83,7 +84,7 @@ class AuthMiddleware extends Middleware
             if ($tokenUserId == $urlUserId) {
                 return;
             } else {
-                $this->abort(401);
+                HTTPResponse::abort(401);
             }
         }
     }

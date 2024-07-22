@@ -15,6 +15,11 @@ class MangakaRepository extends BaseRepository
     return array_map(fn ($data) => new Mangaka($data), $result);
   }
 
+  public function createMangaka(Mangaka $mangaka)
+  {
+    
+  }
+
   public function getMangakaById(int $id)
   {
     $result = $this->getById($this->table, $this->idTable, $id);
